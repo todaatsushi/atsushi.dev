@@ -2,13 +2,20 @@
 {% load static %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'home/css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'work/css/detail.css' %}">
 {% endblock %}
 
 {% block title %}
     {{ project.name }}
 {% endblock %}
 
-{% block main %}´
-    {{ project.name ∑}}
+{% block main %}
+    <h1>{{ project.name }}</h1>
+    <h4>{{ project.description }}</h4>
+
+    <a href="{% url 'update-project' project.url_slug %}">Update</a>
+    <a href="{% url 'delete-project' project.url_slug %}">Delete</a>
+
+    <a href="{% url 'all-projects' %}">Back</a>
 {% endblock %}
+

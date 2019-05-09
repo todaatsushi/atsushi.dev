@@ -1,0 +1,17 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/css/delete.css' %}">
+{% endblock %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" name="Confirm Delete">
+    </form>
+{% endblock %}

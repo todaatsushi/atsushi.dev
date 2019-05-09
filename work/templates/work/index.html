@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'work/css/index.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -10,5 +10,11 @@
 {% endblock %}
 
 {% block main %}
-    Project Index
+    <h1>Project Index</h1>
+    <h2><a href="{% url 'new-project' %}">New</a></h2>
+
+    {% for p in all_projects %}
+        <a href="{% url 'view-project' p.url_slug %}">{{ p.name }}</a>
+    {% endfor %}
 {% endblock %}
+
