@@ -1,0 +1,17 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/css/form.css' %}">
+    {% block extra_style %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+    {% block extra_main %}
+    {% endblock %}
+{% endblock %}
