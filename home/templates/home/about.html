@@ -1,4 +1,10 @@
 {% extends 'home/layout.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+{% endblock %}
+
 
 {% block title %}
     About
