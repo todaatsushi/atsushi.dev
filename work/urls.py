@@ -3,9 +3,9 @@ from django.urls import path
 from work import views as v
 
 urlpatterns = [
-    path('', v.ProjectIndexView, name='all-projects'),
-    path('create/', v.ProjectCreateView, name='new-project'),
-    path('<str:name>/', v.ProjectDetailView, name='view-project'),
-    path('<str:name>/update/', v.ProjectUpdateView, name='update-project'),
-    path('<str:name>/delete/', v.ProjectDeleteView, name='delete-project'),
+    path('', v.ProjectIndexView.as_view(), name='all-projects'),
+    path('create/', v.ProjectCreateView.as_view(), name='new-project'),
+    path('<str:name>/', v.ProjectDetailView.as_view(), name='view-project'),
+    path('<str:name>/update/', v.ProjectUpdateView.as_view(), name='update-project'),
+    path('<str:name>/delete/', v.ProjectDeleteView.as_view(), name='delete-project'),
 ]
