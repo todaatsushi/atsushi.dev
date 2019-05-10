@@ -1,0 +1,28 @@
+.border {
+    border: 1px solid navy;
+}
+
+.score {
+    display: none;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+#score-1 {
+    display: block;
+}
+
+.stars {
+    /* border: 1px solid gold; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.score-help {
+    /* border: 1px solid skyblue; */
+}
+
+.score-parent {
+    width: 100%;
+}
