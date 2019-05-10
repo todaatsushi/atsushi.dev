@@ -1,17 +1,20 @@
 import os
 
 from django.core.mail import send_mail
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.views.generic import FormView
+from django.urls import reverse
 
 from home.forms import ContactForm
 from home.models import Feedback
 
 
-class ContactView(FormView):
+class ContactView(SuccessMessageMixin, FormView):
     form_class = ContactForm
     template_name = 'home/contact.html'
-    success_url = '/'
+    success_url = '/contact/'
+    success_message = 'Thanks for contacting me. You can expect a reply back very soon.'
 
     def form_valid(self, form):
         if form.is_valid():
@@ -33,9 +36,6 @@ class ContactView(FormView):
             )
 
         return super().form_valid(form)
-
-    # def get_success_url(self):
-    #     pass
 
 
 def home(request):
