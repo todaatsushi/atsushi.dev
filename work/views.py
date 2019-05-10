@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views.generic import (DetailView, ListView, UpdateView, DeleteView, CreateView)
 from django.urls import reverse
 
-from work.forms import CreateUpdateProject
 from work.models import Project
 
 
