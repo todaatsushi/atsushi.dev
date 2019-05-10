@@ -1,12 +1,45 @@
+import os
+
+from django.core.mail import send_mail
 from django.shortcuts import render
+from django.views.generic import FormView
+
+from home.forms import ContactForm
+from home.models import Feedback
+
+
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = 'home/contact.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        if form.is_valid():
+            feedback = Feedback(
+                name=form.cleaned_data.get('name'),
+                email=form.cleaned_data.get('email'),
+                message=form.cleaned_data.get('message'),
+                score=form.cleaned_data.get('score'),
+            )
+
+            feedback.save()
+            my_email = os.environ.get('EMAIL_ADDRESS')
+            send_mail(
+                f'Contact Email from {feedback.name} ({feedback.email})',
+                feedback.message,
+                my_email,
+                [my_email],
+                fail_silently=False
+            )
+
+        return super().form_valid(form)
+
+    # def get_success_url(self):
+    #     pass
 
 
 def home(request):
     return render(request, 'home/home.html')
-
-
-def contact(request):
-    return render(request, 'home/contact.html')
 
 
 def about(request):

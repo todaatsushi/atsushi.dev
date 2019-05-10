@@ -4,6 +4,6 @@ from home import views as v
 
 urlpatterns = [
     path('', v.home, name='home'),
-    path('contact/', v.contact, name='contact'),
+    path('contact/', v.ContactView.as_view(), name='contact'),
     path('about/', v.about, name='about'),
 ]
