@@ -1,5 +1,7 @@
 from django.db import models
 
+from work.helper import unpack
+
 
 class Project(models.Model):
     # Descriptive Info
@@ -19,3 +21,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_languages(self):
+        return self.languages.split(',')
+
+    def get_stack(self):
+        return self.stack.split(',')

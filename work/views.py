@@ -4,12 +4,28 @@ from django.views.generic import (DetailView, ListView, UpdateView, DeleteView, 
 from django.urls import reverse
 
 from work.models import Project
+from work.forms import CreateProject
+from work.helper import unpack
+
+LANGUAGES = unpack([
+    l.languages for l in Project.objects.all()
+])
+
+TECHNOLOGIES = unpack ([
+    t.stack for t in Project.objects.all()
+])
 
 
 class ProjectIndexView(ListView):
     model = Project
     template_name = 'work/index.html'
     context_object_name = 'all_projects'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['langs'] = LANGUAGES
+        context['techs'] = TECHNOLOGIES
+        return context
 
 
 class ProjectDetailView(DetailView):
@@ -45,9 +61,7 @@ class ProjectDeleteView(DeleteView):
 class ProjectCreateView(CreateView):
     model = Project
     template_name = 'work/create.html'
-    fields = [
-        'name', 'description', 'link', 'repository', 'languages', 'stack', 'hosting',
-    ]
+    form_class = CreateProject
 
     def form_valid(self, form):
         form.instance.url_slug = form.instance.name.lower().replace(' ', '-')
