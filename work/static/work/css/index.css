@@ -1,0 +1,8 @@
+#proj-all {
+    display: flex;
+    justify-content: space-between
+}
+
+.controls, .projects {
+    padding: 10px;
+}

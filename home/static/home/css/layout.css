@@ -1,0 +1,12 @@
+/* Pal
+Red - #db2b39
+Blue - #499dc6
+Yellow - #f0cf65
+Navy - #29335c
+Pink - #bc3c5e */
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100');
+
+* {
+    font-family: "IBM Plex Sans", sans-serif;
+}

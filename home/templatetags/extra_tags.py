@@ -20,3 +20,11 @@ def loop_nums(min=5):
     Range filter for numerical loops.
     """
     return range(1, min + 1)
+
+
+@register.filter
+def replace_space(value, arg="-"):
+    """
+    Replace spaces with arg.
+    """
+    return value.replace(" ", arg)

@@ -44,7 +44,9 @@ class ProjectUpdateView(UpdateView):
     slug_field = 'url_slug'
 
     def form_valid(self, form):
-        form.instance.url_slug = form.instance.name.lower().replace(' ', '-')
+        import re
+        
+        form.instance.url_slug = re.sub(r'[^a-zA-Z]', '-', form.instance.name.lower())
         return super().form_valid(form)
 
     def get_success_url(self):
