@@ -9,6 +9,8 @@ from django.urls import reverse
 from home.forms import ContactForm
 from home.models import Feedback
 
+from work.models import Project
+
 
 class ContactView(SuccessMessageMixin, FormView):
     form_class = ContactForm
@@ -36,11 +38,22 @@ class ContactView(SuccessMessageMixin, FormView):
             )
 
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = Project.objects.all()
+        return context
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    context = {
+        'projects': Project.objects.all(),
+    }
+    return render(request, 'home/home.html', context)
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    context = {
+        'projects': Project.objects.all(),
+    }
+    return render(request, 'home/about.html', context)
