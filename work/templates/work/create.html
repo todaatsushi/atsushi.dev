@@ -1,5 +1,5 @@
 {% extends 'work/form_template.html' %}
-{% load static %}
+{% load static extra_tags %}
 
 {% block extra_style %}
 {% endblock %}
@@ -9,11 +9,33 @@
 {% endblock %}
 
 {% block extra_main %}
-    New Project
-
-    <form method="post">
+    <form method="post" class="uk-margin-large uk-grid-small" uk-grid>
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <legend class="uk-legend">New Project</legend>
+        <div class="uk-width-1-1">
+            {{ form.non_field_errors }}
+            
+            {% for field in form %}
+                {{ field.errors }}
+            {% endfor %}
+        </div>
+
+        {% for field in form %}
+            <div class="uk-form-controls uk-width-1-2@s">
+                {% with input_type=field.field.widget.input_type %}
+                    {% if input_type == "text" or input_type == 'url' %}
+                        {{ field.label }}
+                        {{ field|add_class:"uk-input" }}
+                    {% else %}
+                        {{ field.label }}
+                        {{ field|add_class:"uk-textarea" }}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        {% endfor %}
+
+        <div class="uk-form-controls uk-width-1-1@s">
+            <input type="submit" value="Submit">
+        </div>
     </form>
 {% endblock %}
