@@ -1,6 +1,6 @@
 from django.urls import path
 
-from work import views as v
+import work. views as v
 
 urlpatterns = [
     path('', v.ProjectIndexView.as_view(), name='all-projects'),
