@@ -34,13 +34,35 @@
 <body>
     <section id="all">
 
-        <nav id="main-nav">
-        </nav>
+        <section id="main" class="uk-container uk-container-expand">
+            <nav id="top-nav" class="uk-navbar-container uk-margin" uk-navbar>
+                <div class="uk-navbar-left uk-margin-large-left">
+                    <h5 class="header uk-margin-small">
+                        {&ensp;<span class="name uk-margin-left-small">atsushi</span>.<span class="misc2">dev</span>()&ensp;}
+                    </h5>
+                </div>
 
-        <section>
+                <div class="uk-navbar-right uk-margin-large-right">
+                    <h5 class="header uk-margin-small">
+                        
+                    </h5>
+                </div>
+            </nav>
+
+
             {% block main %}
             {% endblock %}
         </section>
+
+        <nav id="icon-nav">
+            <ul class="uk-nav uk-nav-default uk-nav-center">
+                <li><a href="" uk-icon="icon: code"></a></li>
+                <li><a href="" uk-icon="icon: info"></a></li>
+                <li><a href="" uk-icon="icon: mail"></a></li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="" uk-icon="icon: github"></a></li>
+            </ul>
+        </nav>
     
     </section>
 </body>

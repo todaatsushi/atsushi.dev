@@ -16,6 +16,10 @@ class Project(models.Model):
     stack = models.TextField(null=True)
     hosting = models.CharField(max_length=100, null=True)
 
+    # # Status
+    # current = models.BooleanField(default=False)
+    # public = models.BooleanField(default=False)
+
     def __repr__(self):
         return self.name
 
@@ -27,3 +31,9 @@ class Project(models.Model):
 
     def get_stack(self):
         return self.stack.split(',')
+
+    # def set_current(self, bool):
+    #     self.current = bool
+
+    # def set_public(self, bool):
+    #     self.public = bool
