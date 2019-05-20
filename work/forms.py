@@ -3,11 +3,12 @@ from django import forms
 from work.models import Project
 
 
-class CreateProject(forms.ModelForm):
+class CreateUpdateProject(forms.ModelForm):
     class Meta:
         model = Project
         fields = [
             'name', 'description', 'link', 'repository', 'languages', 'stack', 'hosting',
+            'public', 'current',
         ]
         widgets = {
             'name': forms.TextInput(),
@@ -23,4 +24,6 @@ class CreateProject(forms.ModelForm):
                 'rows': 2,
             }),
             'hosting': forms.TextInput(),
+            'public': forms.CheckboxInput(),
+            'current': forms.CheckboxInput(),
         }

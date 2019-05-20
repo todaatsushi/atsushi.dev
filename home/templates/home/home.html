@@ -12,21 +12,34 @@
 
 {% block main %}
     <section id="splash" class="uk-container">
-
+        <div class="center-screen">
+            <h1 class="header" id="title">
+                <span class="brackets">{</span>&ensp;<span class="comment2 uk-margin-left-small">atsushi</span>.<span class="misc">dev</span><span class="brackets">()</span>&ensp;<span class="brackets">}</span>
+            </h1>
+            <ul class="uk-breadcrumb">
+                <li class="header">web apps</li>
+                <li class="header">django</li>
+                <li class="header">london</li>
+            </ul>
+        </div>
+        
     </section>
 
-    <nav id="sticky-nav" class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left uk-margin-large-left">
-            <h5 class="header uk-navbar-item nav-logo">
-                <a href="{% url 'home' %}" class="header">{&ensp;<span class="name uk-margin-left-small">atsushi</span>.<span class="misc">dev</span>()&ensp;}</a>
-            </h5>
-        </div>
-        <div class="uk-navbar-right uk-margin-large-right">
+    <nav id="sticky-nav" class="uk-navbar-container" uk-navbar uk-sticky>
+        <!-- <div class="uk-navbar-left">
+            <span class="uk-navbar-item">Currently working on: {{ current }}</span>
+        </div> -->
+        <div class="uk-navbar-center">
             <ul class="uk-navbar-nav nav-links">
-                <li><a href="{% url 'all-projects' %}" class="link-2 header uk-margin-medium-right">Work</a></li>
-                <li><a href="{% url 'about' %}" class="link-3 header uk-margin-medium-right">About</a></li>
-                <li><a href="{% url 'contact' %}" class="link-4 header uk-margin-medium-right">Contact</a></li>
+                <li><a href="{% url 'home' %}" class="link-1 header ">Home</a></li>
+                <li><a href="{% url 'all-projects' %}" class="link-2 header ">Work</a></li>
+                <li><a href="{% url 'about' %}" class="link-3 header ">About</a></li>
+                <li><a href="{% url 'contact' %}" class="link-4 header ">Contact</a></li>
             </ul>
         </div>
     </nav>
+
+    <section id="splash2" class="uk-container">
+
+    </section>
 {% endblock %}

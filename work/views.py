@@ -1,10 +1,11 @@
-from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import (DetailView, ListView, UpdateView, DeleteView, CreateView)
 from django.urls import reverse
 
 from work.models import Project
-from work.forms import CreateProject
+from work.forms import CreateUpdateProject
 from work.helper import unpack
 
 LANGUAGES = unpack([
@@ -27,6 +28,11 @@ class ProjectIndexView(ListView):
         context['techs'] = TECHNOLOGIES
         return context
 
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Project.objects.all()
+        return Project.objects.filter(public=True).order_by('name')
+
 
 class ProjectDetailView(DetailView):
     model = Project
@@ -34,39 +40,75 @@ class ProjectDetailView(DetailView):
     context_object_name = 'project'
     slug_field = 'url_slug'
 
+    def get_object(self, queryset=None):
+        project = super().get_object(queryset=queryset)
 
-class ProjectUpdateView(UpdateView):
+        if self.request.user.is_authenticated:
+            return project
+
+        if not project.public:
+            raise Http404()
+        return project
+
+
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'work/update.html'
-    fields = [
-        'name', 'description', 'link', 'repository', 'languages', 'stack', 'hosting',
-    ]
+    form_class = CreateUpdateProject
     slug_field = 'url_slug'
+    login_url = '/'
+    redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
         import re
-        
-        form.instance.url_slug = re.sub(r'[^a-zA-Z]', '-', form.instance.name.lower())
+
+        # Make valid URL_SLUG
+        slug = form.instance.name.lower()
+        slug = slug.replace(" ", "-")
+        slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
+
+        form.instance.url_slug = slug
+
+        # Ensure there is only one current project
+        if form.instance.current:
+            for p in Project.objects.all():
+                p.current = False
+                p.save()
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('view-project', kwargs={'slug': self.object.url_slug})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'work/delete.html'
     slug_field = 'url_slug'
     success_url = '/work/'
+    redirect_field_name = None
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     template_name = 'work/create.html'
-    form_class = CreateProject
+    form_class = CreateUpdateProject
+    redirect_field_name = None
 
     def form_valid(self, form):
-        form.instance.url_slug = form.instance.name.lower().replace(' ', '-')
+        import re
+        
+        # Make valid URL_SLUG
+        slug = form.instance.name.lower()
+        slug = slug.replace(" ", "-")
+        slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
+
+        form.instance.url_slug = slug
+
+        # Ensure there is only one current project
+        if form.instance.current:
+            for p in Project.objects.all():
+                p.current = False
+                p.save()
         return super().form_valid(form)
 
     def get_success_url(self):

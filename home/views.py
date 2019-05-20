@@ -49,6 +49,7 @@ def home(request):
     context = {
         'projects': Project.objects.all(),
         'show_nav': False,
+        'current': Project.objects.get(current=True)
     }
     return render(request, 'home/home.html', context)
 

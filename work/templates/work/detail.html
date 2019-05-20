@@ -13,8 +13,10 @@
     <h1>{{ project.name }}</h1>
     <h4>{{ project.description }}</h4>
 
-    <a href="{% url 'update-project' project.url_slug %}">Update</a>
-    <a href="{% url 'delete-project' project.url_slug %}">Delete</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'update-project' project.url_slug %}">Update</a>
+        <a href="{% url 'delete-project' project.url_slug %}">Delete</a>
+    {% endif %}
 
     <a href="{% url 'all-projects' %}">Back</a>
 {% endblock %}
