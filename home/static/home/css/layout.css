@@ -61,3 +61,62 @@ hr {
 .m-xs {
     margin-left: 3px;
 }
+
+
+/* Code Styling */
+.reserved {
+    font-family: "Overpass Mono", monospace;
+    color: #e952de;
+}
+
+.comment {
+    font-family: "Overpass Mono", monospace;
+    color: #4b7c8c;
+}
+
+.comment2 {
+    font-family: "Overpass Mono", monospace;
+    color: #ef798a;
+}
+
+.function {
+    font-family: "Overpass Mono", monospace;
+    color: #398aa3;
+}
+
+.name {
+    font-family: "Overpass Mono", monospace;
+    color: #e87461;
+}
+
+.misc {
+    font-family: "Overpass Mono", monospace;
+    color: #1c9363
+}
+
+.misc2 {
+    font-family: "Overpass Mono", monospace;
+    color: #4fa322;
+}
+
+.misc3 {
+    font-family: "Overpass Mono", monospace;
+    color: #a52e4a;
+}
+
+/* Link styles */
+.link-1:link, .link-1:visited {
+    color: #e3b505;
+}
+
+.link-2:link, .link-2:visited {
+    color: #4fa322;
+}
+
+.link-3:link, .link-3:visited {
+    color: #f45b69;
+}
+
+.link-4:link, .link-4:visited {
+    color: #e952de;
+}

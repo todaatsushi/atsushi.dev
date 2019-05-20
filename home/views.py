@@ -48,6 +48,7 @@ class ContactView(SuccessMessageMixin, FormView):
 def home(request):
     context = {
         'projects': Project.objects.all(),
+        'show_nav': False,
     }
     return render(request, 'home/home.html', context)
 
@@ -55,5 +56,6 @@ def home(request):
 def about(request):
     context = {
         'projects': Project.objects.all(),
+        'show_nav': True,
     }
     return render(request, 'home/about.html', context)

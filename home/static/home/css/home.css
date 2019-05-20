@@ -1,159 +1,44 @@
-/* Main Page Layout */
-
 #splash {
-    /* border: 4px solid hotpink; */
-    min-height: 100vh;
-
-    display: flex;
-    align-content: center;
-    justify-content: space-around;
-
-    margin-top: -75px;
-    
-    
+    width: 100%;
+    min-height: 85vh;
+    /* border: 1px solid blue; */
 }
 
-.def {
-    /* border: 4px solid gold; */
+/* Hide icon-nav initially */
+#icon-nav {
+    display: none;
+}
 
-    background-color: #fff;
-
-    width: 50vw;
-    /* height: 30vh; */
-
-    padding: 0;
-    /* margin: 4.7em; */
-
-    padding: 0 60px;
-
+/* Sticky Nav */
+#sticky-nav {
+    overflow: hidden;
+    background: transparent;
+    height: 15vh;
+    border-top : 4px solid #000;
+    min-height: 50px;
     display: flex;
-    flex-direction: column;
     align-content: center;
     justify-content: center;
 }
 
-.def h3 {
-    font-size: calc(12px + 0.5vw);
+.nav-logo {
+    font-size: 1.5rem;
+    font-family: 'Overpass Mono';
+    margin: 0;
 }
 
-.def h4 {
-    font-size: calc(12px + 0.2vw);
+.nav-logo a:link, .nav-logo a:visited {
+    text-decoration: none;
+    color: #000;
 }
 
-.def h5 {
-    font-size: calc(12px + 0.1vw);
-}
-
-.decor {
-    border: 4px solid silver;
-    width: 25vw;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.circle {
-    border: 4px solid red;
-    height: 10vw;
-    width: 10vw;
-    border-radius: 50%;
-    margin: 20px;
-  }
-
-.c1 {
-    border: 2px solid #e8c84c;
-}
-
-.c2 {
-    border: 2px solid #d90368;
-}
-
-.c3 {
-    border: 2px solid #00d37e;
-}
-
-
-/* Code Styling */
-.reserved {
-    font-family: "Overpass Mono", monospace;
+.nav-logo a:hover, .nav-logo a:active {
     color: #e952de;
 }
 
-.comment {
-    font-family: "Overpass Mono", monospace;
-    color: #4b7c8c;
-}
-
-.comment2 {
-    font-family: "Overpass Mono", monospace;
-    color: #ef798a;
-}
-
-.function {
-    font-family: "Overpass Mono", monospace;
-    color: #398aa3;
-}
-
-.name {
-    font-family: "Overpass Mono", monospace;
-    color: #e87461;
-}
-
-.misc {
-    font-family: "Overpass Mono", monospace;
-    color: #1c9363
-}
-
-.misc2 {
-    font-family: "Overpass Mono", monospace;
-    color: #4fa322;
-}
-
-.misc3 {
-    font-family: "Overpass Mono", monospace;
-    color: #a52e4a;
-}
-
-
-/* Code Links */
-a.function:link, a.function:visited {
-    font-family: "Overpass Mono", monospace;
-    color: #6adafc;
-}
-
-a:link, a:visited {
-    font-family: "Overpass Mono", monospace;
-    color: #630010;
-}
-
-a:hover, a.function:hover {
-    color: #7d2736;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.000005em;
-}
-
-/* Fade in on hover links */
-@keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
- } 
-
-.site-link:link, .site-link:visited {
-    border-right: 3px solid transparent;
-    transition: border-right 0.5s;
-}
-
-.site-link.var1:hover {
-    border-right: 3px solid #e3b505;
-}
-
-.site-link.var2:hover {
-    border-right: 3px solid #60d394;
-}
-
-.site-link.var3:hover {
-    border-right: 3px solid #f45b69;
+.nav-links li a {
+    letter-spacing: 3px;
+    font-size: 1.05rem;
+    font-family: 'Overpass Mono';
+    text-transform: lowercase;
 }

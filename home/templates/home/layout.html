@@ -35,19 +35,23 @@
     <section id="all">
 
         <section id="main" class="uk-container uk-container-expand">
-            <nav id="top-nav" class="uk-navbar-container uk-margin" uk-navbar>
-                <div class="uk-navbar-left uk-margin-large-left">
-                    <h5 class="header uk-margin-small">
-                        {&ensp;<span class="name uk-margin-left-small">atsushi</span>.<span class="misc2">dev</span>()&ensp;}
-                    </h5>
-                </div>
+            {% if show_nav %}
+                <nav id="top-nav" class="uk-navbar-container uk-margin" uk-navbar>
+                    <div class="uk-navbar-left uk-margin-large-left">
+                        <h5 class="header uk-margin-small">
+                            {&ensp;<span class="name uk-margin-left-small">atsushi</span>.<span class="misc2">dev</span>()&ensp;}
+                        </h5>
+                    </div>
 
-                <div class="uk-navbar-right uk-margin-large-right">
-                    <h5 class="header uk-margin-small">
-                        
-                    </h5>
-                </div>
-            </nav>
+                    <div class="uk-navbar-right uk-margin-large-right">
+                        <h5 class="header uk-margin-small">
+                            {% if user.is_authenticated %}
+                                <span uk-icon="check"></span>
+                            {% endif %}
+                        </h5>
+                    </div>
+                </nav>
+            {% endif %}
 
 
             {% block main %}

@@ -5,11 +5,112 @@
     <link rel="stylesheet" href="{% static 'home/css/about.css' %}">
 {% endblock %}
 
-
 {% block title %}
-    About
+    Home
 {% endblock %}
 
 {% block main %}
-    About
+    <div id="splash">
+
+        <div class="def">
+            <h3 class="header def-m norm-text">
+                <span class="reserved">class</span> <span class="misc2">AtsushiToda</span>(JuniorSoftwareDeveloper.<span class="name">ForHire</span>):
+            </h3>
+            <h5 class="header def-m norm-text m-xs">
+                <span class="comment">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;""" <br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Web app development with Python, JavaScript,<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;HTML and CSS along with a bit of R.<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"""
+                </span>
+            </h5>
+            <h4 class="header def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">def</span> <span class="function">__init__</span>(<span class="misc">self</span>, <span class="misc">*</span>args, <span class="misc">**</span>kwargs):
+            </h4>
+            <h5 class="header def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                <span class="misc">self</span>.status = <span class="comment">'Looking for a junior software development role'</span>
+            </h5>
+            <h5 class="header def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                <span class="misc">self</span>.languages = [ <span class="comment">'Python'</span>, <span class="comment">'JavaScript (inc. ES6)' </span> ]
+            </h5>
+            <h5 class="header def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                <span class="misc">self</span>.speciality = <span class="comment">'Web App Development'</span>
+            </h5>
+            <h5 class="header def-m norm-text uk-margin-medium-bottom">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                <span class="misc">self</span>.willing_to_learn = <span class="reserved">True</span>
+            </h5>
+            <!-- <h5 class="header def-m norm-text uk-margin-medium-bottom">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <span class="misc">self</span>.portfolio = <span class="misc">portfolio</span>
+            </h5>     -->
+        <!-- <br><br> -->
+            <h5 class="header def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&ensp;
+                <span class="comment2"># Navigate the site through the functions below!</span>
+            </h5>
+            <a href="{% url 'all-projects' %}" class="site-link var3 uk-margin-medium-bottom">
+                <h4 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">def</span> <span class="function">see_work</span>(<span class="misc">self</span>):
+                </h4>
+                <h5 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">return</span> <span class="function">get_portfolio</span>()
+                </h5>
+            </a>
+            <!-- <br><br> -->
+            <a href="{% url 'about' %}" class="site-link var1  uk-margin-medium-bottom">
+                <h4 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">def</span> <span class="function">about_atsushi</span>(<span class="misc">self</span>):
+                </h4>
+                <h5 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">return</span> <span class="function">more_info</span>(<span class="misc">self</span>.about, <span class="misc">self</span>.skills)
+                </h5>
+            </a>
+
+            <!-- <br><br> -->
+            <a href="{% url 'contact' %}" class="site-link var2">
+                <h4 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">def</span> <span class="function">contact</span>(<span class="misc">self</span>):
+                </h4>
+                <h5 class="header def-m norm-text">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <span class="reserved">return</span> <span class="function">contactAtsushi</span>()
+                </h5>
+            </a>
+        </div>
+
+        <div class="decor">
+            <div class="circle c1"></div>
+            <div class="circle c2"></div>
+            <div class="circle c3"></div>
+        </div>
+
+    </div>
 {% endblock %}
+
+<!-- Init -->
+<!-- <h5 class="header def-m norm-text">
+    &emsp;&emsp;&emsp;&emsp;
+    <span class="reserved">def</span> <span class="function">__init__</span>(<span class="misc">self</span>, about, skills, portfolio):
+</h5>
+<h5 class="header def-m norm-text">
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <span class="misc">self</span>.about = <span class="misc2">about</span>
+</h5>
+<h5 class="header def-m norm-text">
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <span class="misc">self</span>.skills = <span class="misc3">skills</span>
+</h5>
+<h5 class="header def-m norm-text uk-margin-medium-bottom">
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <span class="misc">self</span>.portfolio = <span class="misc">portfolio</span>
+</h5> -->
