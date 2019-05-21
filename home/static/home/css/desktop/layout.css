@@ -15,6 +15,10 @@ Pink - #bc3c5e */
     font-family: "Overpass Mono", serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #main {
     display: flex;
     flex-direction: column;

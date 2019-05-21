@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{% static 'home/css/mobile/home-mob.css' %}">
 {% endblock %}
 
+{% block javascript %}
+    <script src="{% static 'home/js/home.js' %}"></script>
+{% endblock %}
+
 
 {% block title %}
     Home
@@ -38,7 +42,7 @@
         </div>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav nav-links">
-                <li><a href="#splash2" uk-icon="icon: more-vertical"></a></li>
+                <li><a id="more-jump" href="#splash2" uk-icon="icon: more-vertical"></a></li>
             </ul>
         </div>
     </nav>
