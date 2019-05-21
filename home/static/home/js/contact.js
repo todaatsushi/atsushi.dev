@@ -1,5 +1,3 @@
-window.onload = adjustScore
-
 var adjustScore = (val) => {
     var allScoreCards = Array.from(
         document.getElementsByClassName('score')
@@ -15,3 +13,5 @@ var adjustScore = (val) => {
     console.log(scoreDiv);
     scoreDiv.style.display = 'block';
 };
+
+window.onload = adjustScore(1);
