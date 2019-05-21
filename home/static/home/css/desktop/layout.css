@@ -95,7 +95,7 @@ hr {
 }
 
 .brackets {
-    color: #35667a;
+    color: #3a6f84;
     font-family: "Overpass Mono", monospace;
 }
 
@@ -114,4 +114,8 @@ hr {
 
 .link-4:link, .link-4:visited {
     color: #e952de;
+}
+
+.link-5:link, .link-5:visited {
+    color: #4ecdc4;
 }

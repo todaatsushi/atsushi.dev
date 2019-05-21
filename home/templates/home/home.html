@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/desktop/home.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/mobile/home-mob.css' %}">
 {% endblock %}
 
 
@@ -12,29 +13,32 @@
 
 {% block main %}
     <section id="splash" class="uk-container">
+        <!-- <div class="center"></div> -->
         <div class="center-screen">
             <h1 class="header" id="title">
-                <span class="brackets">{</span>&ensp;<span class="comment2 uk-margin-left-small">atsushi</span>.<span class="misc">dev</span><span class="brackets">()</span>&ensp;<span class="brackets">}</span>
+                <span class="brackets">{</span>&ensp;<span class="comment2 uk-margin-left-small">atsushi</span><span class="brackets">.</span><span class="misc">dev</span><span class="brackets">()</span>&ensp;<span class="brackets">}</span>
             </h1>
             <ul class="uk-breadcrumb">
-                <li class="header">web apps</li>
-                <li class="header">django</li>
-                <li class="header">london</li>
+                <li class="header brackets">web apps</li>
+                <li class="header brackets">django</li>
+                <li class="header brackets">london</li>
             </ul>
         </div>
         
     </section>
 
-    <nav id="sticky-nav" class="uk-navbar-container" uk-navbar uk-sticky>
-        <!-- <div class="uk-navbar-left">
-            <span class="uk-navbar-item">Currently working on: {{ current }}</span>
-        </div> -->
+    <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
         <div class="uk-navbar-center">
             <ul class="uk-navbar-nav nav-links">
                 <li><a href="{% url 'home' %}" class="link-1 header ">Home</a></li>
+                <li><a href="{% url 'contact' %}" class="link-4 header ">Contact</a></li>
                 <li><a href="{% url 'all-projects' %}" class="link-2 header ">Work</a></li>
                 <li><a href="{% url 'about' %}" class="link-3 header ">About</a></li>
-                <li><a href="{% url 'contact' %}" class="link-4 header ">Contact</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav nav-links">
+                <li><a href="#splash2" uk-icon="icon: more-vertical"></a></li>
             </ul>
         </div>
     </nav>

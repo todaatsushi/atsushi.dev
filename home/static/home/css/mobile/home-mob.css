@@ -1,0 +1,9 @@
+@media (max-width: 575px) {
+    #title {
+        font-size: calc(1rem + 0.75vw);
+    }
+
+    .uk-breadcrumb li {
+        font-size: 0.7rem;
+    }
+}

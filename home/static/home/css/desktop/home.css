@@ -17,9 +17,18 @@
     height: 100%;
 }
 
+.center {
+    height: 100vh;
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 50%;
+}
+
 #title {
     font-size: calc(3rem + 0.75vw);
 }
+
 
 #splash2 {
     min-height: 200vh;
@@ -37,16 +46,17 @@
     overflow: hidden;
     background: transparent;
     height: 13vh;
-    /* border-top : 4px solid #000; */
     min-height: 50px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
 }
 
 .uk-navbar-nav {
     align-items: center;
     justify-content: center;
+}
+
+.shrink-text li {
+    font-family: 'Overpass Mono';
+    font-size: 0.7rem;
 }
 
 .nav-logo {
