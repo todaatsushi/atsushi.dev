@@ -2,6 +2,26 @@
     border: 1px solid navy;
 }
 
+#contact-main {
+    height: 100%;
+    width: 100%;
+}
+
+.message-field {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+#contact-main:after {
+    background: linear-gradient(to right, #bcbcbc 25%,#ffcd02 25%, #ffcd02 50%, #e84f47 50%, #e84f47 75%, #65c1ac 75%);
+    position: absolute;
+    content: '';
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    top: 0;
+  }
+
 .score {
     display: none;
     margin-top: 1rem;
@@ -19,9 +39,6 @@
     margin-bottom: 1rem;
 }
 
-.score-help {
-    /* border: 1px solid skyblue; */
-}
 
 .score-parent {
     width: 100%;
