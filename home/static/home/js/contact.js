@@ -1,16 +1,15 @@
-var adjustScore = (val) => {
-    var allScoreCards = Array.from(
+const adjustScore = (val) => {
+    let allScoreCards = Array.from(
         document.getElementsByClassName('score')
     );
-    console.log(allScoreCards);
-
+    
+    // Start by hiding all options
     allScoreCards.map(card => {
-        console.log(card);
         card.style.display = 'none';
     })
 
-    var scoreDiv = document.getElementById('score-x'.replace('x', val));
-    console.log(scoreDiv);
+    // Show the valid option
+    let scoreDiv = document.getElementById('score-x'.replace('x', val));
     scoreDiv.style.display = 'block';
 };
 
