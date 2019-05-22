@@ -26,6 +26,8 @@ class ProjectIndexView(ListView):
         context = super().get_context_data(**kwargs)
         context['langs'] = LANGUAGES
         context['techs'] = TECHNOLOGIES
+        context['current'] = Project.objects.get(current=True)
+        context['show_nav'] = True
         return context
 
     def get_queryset(self):
@@ -39,6 +41,12 @@ class ProjectDetailView(DetailView):
     template_name = 'work/detail.html'
     context_object_name = 'project'
     slug_field = 'url_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current'] = Project.objects.get(current=True)
+        context['show_nav'] = True
+        return context
 
     def get_object(self, queryset=None):
         project = super().get_object(queryset=queryset)

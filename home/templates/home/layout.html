@@ -12,6 +12,7 @@
 
     <!-- Local -->
     <link rel="stylesheet" href="{% static 'home/css/desktop/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/mobile/layout-mob.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/desktop/typography.css' %}">
     {% block stylesheet %}
     {% endblock %}
@@ -37,7 +38,7 @@
         <section id="main" class="uk-container uk-container-expand">
             {% if show_nav %}
                 <nav id="top-nav" class="uk-navbar-container uk-navbar" uk-navbar>
-                    <div class="uk-navbar-left">
+                    <div class="uk-navbar-left full-nav">
                         <ul class="uk-navbar-nav">
                             <li>
                                 <a href="{% url 'home' %}" id="logo">
@@ -57,7 +58,7 @@
                         </h5>
                     </div>
 
-                    <div class="uk-navbar-right uk-margin-large-right">
+                    <div class="uk-navbar-right uk-margin-large-right" id="nav-options">
                         <ul class="uk-navbar-nav">
                             <li><a href="{% url 'home' %}" class="link-1">Home</a></li>
                             <li><a href="{% url 'contact' %}" class="link-4">Contact</a></li>

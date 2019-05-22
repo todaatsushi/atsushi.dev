@@ -1,0 +1,9 @@
+@media (max-width: 670px) {
+    .full-nav {
+        display: none;
+    }
+
+    #top-nav {
+        margin-top: 30px;
+    }
+}
