@@ -1,8 +1,8 @@
 /* Splash screen */
 #splash {
     width: 100%;
-    min-height: 85vh;
-    /* border: 1px dashed blue; */
+    height: 85vh;
+    min-height: 6in; 
     margin-top: 10px;
 }
 
@@ -16,13 +16,6 @@
     height: 100%;
 }
 
-.center {
-    height: 100vh;
-    border: 1px solid black;
-    position: fixed;
-    top: 0;
-    left: 50%;
-}
 
 #title {
     font-size: calc(3rem + 0.75vw);
