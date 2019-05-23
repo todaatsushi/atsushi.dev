@@ -14,22 +14,31 @@
 {% endblock %}
 
 {% block main %}
+
     {% if user.is_authenticated %}
         <h2 id="new-proj"><a href="{% url 'new-project' %}" uk-icon="icon: plus"></a></h2>
     {% endif %}
 
     <div id="proj-all" class="uk-container" uk-filter="target: .js-filter">
         <div class="projects">
-            <ul class="js-filter uk-text-center uk-grid-collapse uk-child-width-1-1" uk-grid>
+            <ul class="js-filter uk-text-center uk-grid-collapse uk-child-width-1-1@s" uk-grid>
                 {% for p in all_projects %}
                     <li class="tag-all {% for l in p.get_languages %}tag-{{ l|lower }} {% endfor %} {% for t in p.get_stack %}{% with lower_t=t|lower %} tag-{{ lower_t|replace_space }} {% endwith %}{% endfor %}">
 
-                        <div class="uk-width-1-1">
-                            <div class="uk-card uk-card-hover uk-card-body uk-margin-small">
-                                <h3 class="uk-card-title"><a href="{% url 'view-project' p.url_slug %}">{{ p.name }}</a></h3>
-                                <p class="serif">{{ p.description }}</p>
+                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin-small-top uk-margin-small-bottom" uk-grid>
+                                <div class="uk-card-media-left uk-cover-container">
+                                    {% with 'work/img/screenshots/'|add:p.name|add:'.png' as img_src %}
+                                        <img src="{% static img_src %}" alt="Screenshot of {{ p.name }} in action"uk-cover>
+                                    {% endwith %}
+                                    <canvas width="600" height="400"></canvas>
+                                </div>
+                                <div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title"><a href="{% url 'view-project' p.url_slug %}">{{ p.name }}</a></h3>
+                                        <p class="serif">{{ p.description }}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                         
                     </li>
                 {% endfor %}
