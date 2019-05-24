@@ -60,22 +60,47 @@
 }
 
 /* Link styles */
-.link-1:link, .link-1:visited {
+a.link-1:link, a.link-1:visited {
     color: #e3b505;
 }
 
-.link-2:link, .link-2:visited {
+a.link-1:hover, a.link-1:active {
+    color: #7C6303;
+    text-decoration: none;
+}
+
+a.link-2:link, a.link-2:visited {
     color: #4fa322;
 }
 
-.link-3:link, .link-3:visited {
+a.link-2:hover, a.link-2:active {
+    color: #2C5913;
+    text-decoration: none;
+}
+
+a.link-3:link, a.link-3:visited {
     color: #f45b69;
 }
 
-.link-4:link, .link-4:visited {
+a.link-3:hover, a.link-3:active {
+    color: #86323A;
+    text-decoration: none;
+}
+
+a.link-4:link, a.link-4:visited {
     color: #e952de;
 }
 
-.link-5:link, .link-5:visited {
+a.link-4:hover, a.link-4:active {
+    color: #802D7A;
+    text-decoration: none;
+}
+
+a.link-5:link, a.link-5:visited {
     color: #4ecdc4;
+}
+
+a.link-5:hover, a.link-5:active {
+    color: #245E5A;
+    text-decoration: none;
 }

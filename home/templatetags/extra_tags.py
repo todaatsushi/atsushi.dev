@@ -28,3 +28,11 @@ def replace_space(value, arg="-"):
     Replace spaces with arg.
     """
     return value.replace(" ", arg)
+
+
+@register.filter
+def split_commas(value):
+    """
+    Splits comma separated values into a list.
+    """
+    return value.split(',')

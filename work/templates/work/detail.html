@@ -1,5 +1,5 @@
 {% extends 'home/layout.html' %}
-{% load static %}
+{% load static extra_tags %}
 
 {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'work/css/detail.css' %}">
@@ -10,8 +10,58 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ project.name }}</h1>
-    <h4>{{ project.description }}</h4>
+    <article class="uk-article">
+        <h1 class="uk-article-title serif">{{ project.name }} 
+            <a href="{{ project.link }}" target="__blank"><button class="uk-button uk-button-default">Link</button></a>
+            <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Technical Details</button>
+        </h1>
+
+        <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar uk-background-default">
+        
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+                <h3 class="mono"><span class="reserved">{{ project.name }}:</span> 
+                    <span class="misc2">Details & Links</span>
+                </h3>
+
+                <dl class="uk-description-list">
+                    <dt class="mono"><span class="misc">Links</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            <li class="serif"><a class="link-1" target="__blank" href="{{ project.link }}">Link</a></li>
+                            <li class="serif"><a class="link-1" target="__blank" href="{{ project.repository }}">Repository</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="misc3">Languages</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            {% for l in project.get_languages %}
+                                <li class="serif brackets">{{ l }}</li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="comment2">Technologies</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            {% for t in project.get_stack %}
+                                <li class="serif brackets">{{ t }}</li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="function">Hosting</span></dt>
+                    <dd class="serif brackets">
+                        <ul class="uk-list uk-list-bullet">
+                            <li class="serif brackets">{{ project.hosting }}</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <p class="uk-text-lead serif">
+            {{ project.description }}
+        </p>
 
     {% if user.is_authenticated %}
         <a href="{% url 'update-project' project.url_slug %}">Update</a>
@@ -19,5 +69,6 @@
     {% endif %}
 
     <a href="{% url 'all-projects' %}">Back</a>
+    </article>
 {% endblock %}
 
