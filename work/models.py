@@ -1,7 +1,5 @@
 from django.db import models
 
-from work.helper import unpack
-
 
 class Project(models.Model):
     # Descriptive Info
@@ -44,7 +42,6 @@ class ProjectSpecs(models.Model):
         Project,
         on_delete=models.CASCADE,
         primary_key=True,
-        related_name='specs',
     )
 
     technical_summary=models.TextField(null=True, default='To be added.')
@@ -55,3 +52,9 @@ class ProjectSpecs(models.Model):
     # Index Screenshot
     preview = models.ImageField(null=True, upload_to='thumbnails')
     header = models.ImageField(null=True, upload_to='headers')
+
+    def __repr__(self):
+        return f'{self.project.name} - Specs'
+
+    def __str__(self):
+        return f'{self.project.name} - Specs'

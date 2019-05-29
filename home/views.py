@@ -43,7 +43,6 @@ class ContactView(SuccessMessageMixin, FormView):
         context = super().get_context_data(**kwargs)
         context['projects'] = Project.objects.all()
         context['show_nav'] = True
-        context['current'] = Project.objects.get(current=True)
         return context
 
 
@@ -51,7 +50,6 @@ def home(request):
     context = {
         'projects': Project.objects.all(),
         'show_nav': False,
-        'current': Project.objects.get(current=True),
     }
     return render(request, 'home/home.html', context)
 
@@ -60,6 +58,5 @@ def about(request):
     context = {
         'projects': Project.objects.all(),
         'show_nav': True,
-        'current': Project.objects.get(current=True),
     }
     return render(request, 'home/about.html', context)
