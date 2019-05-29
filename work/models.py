@@ -37,3 +37,18 @@ class Project(models.Model):
 
     def set_public(self, bool):
         self.public = bool
+
+
+
+class ProjectSpecs(models.Model):
+    project = models.OneToOneField(
+        Project,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        related_name='specs',
+    )
+
+    technical_summary=models.TextField(null=True)
+    best_features=models.TextField(null=True)
+    future_plans=models.TextField(null=True)
+    things_learned=models.TextField(null=True)
