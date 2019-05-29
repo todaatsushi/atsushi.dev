@@ -16,7 +16,7 @@ class Project(models.Model):
     stack = models.TextField(null=True)
     hosting = models.CharField(max_length=100, null=True)
 
-    # # Status
+    # Status
     current = models.BooleanField(default=False)
     public = models.BooleanField(default=False)
 
@@ -39,7 +39,6 @@ class Project(models.Model):
         self.public = bool
 
 
-
 class ProjectSpecs(models.Model):
     project = models.OneToOneField(
         Project,
@@ -48,7 +47,11 @@ class ProjectSpecs(models.Model):
         related_name='specs',
     )
 
-    technical_summary=models.TextField(null=True)
-    best_features=models.TextField(null=True)
-    future_plans=models.TextField(null=True)
-    things_learned=models.TextField(null=True)
+    technical_summary=models.TextField(null=True, default='To be added.')
+    best_features=models.TextField(null=True, default='To be added.')
+    future_plans=models.TextField(null=True, default='To be added.')
+    things_learned=models.TextField(null=True, default='To be added.')
+
+    # Index Screenshot
+    preview = models.ImageField(null=True, upload_to='thumbnails')
+    header = models.ImageField(null=True, upload_to='headers')

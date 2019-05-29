@@ -1,6 +1,6 @@
 from django import forms
 
-from work.models import Project
+from work.models import Project, ProjectSpecs
 
 
 class CreateUpdateProject(forms.ModelForm):
@@ -27,3 +27,12 @@ class CreateUpdateProject(forms.ModelForm):
             'public': forms.CheckboxInput(),
             'current': forms.CheckboxInput(),
         }
+
+
+class CreateUpdateSpecs(forms.ModelForm):
+    class Meta:
+        model = ProjectSpecs
+        fields = [
+            'technical_summary', 'best_features', 'future_plans',
+            'things_learned', 'preview', 'header',
+        ]

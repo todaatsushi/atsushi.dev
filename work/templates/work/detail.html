@@ -18,11 +18,9 @@
                 <p class="serif">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe delectus assumenda architecto quaerat nesciunt cumque quia officia dicta porro ipsam soluta cupiditate, itaque laudantium expedita.</p>
                 <p class="serif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, consequuntur.</p>
             </div>
-            {% with image='work/img/headers/'|add:name|add:'.png' %}
-                <div class="detail-header uk-height-large uk-width-1-2@s"
-                    data-src="{% static image %}"
-                    uk-img>
-            {% endwith %}
+            <div class="detail-header uk-height-large uk-width-1-2@s"
+                data-src="{{ project.specs.preview.url }}"
+                uk-img>
                 <div class="detail-info">
                     <h1 class="project-header mono">{{ project.name }}</h1>
                     <div class="detail-buttons">

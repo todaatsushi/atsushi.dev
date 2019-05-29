@@ -13,7 +13,13 @@
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
+
+        <h1>Details</h1>
+        {{ project_form.as_p }}
+
+        <h1>Specs</h1>
+        {{ specs_form.as_p }}
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
