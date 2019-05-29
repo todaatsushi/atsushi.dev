@@ -13,10 +13,41 @@
     {% with project.name as name %}
         <article class="uk-article uk-grid-small" uk-grid>
             <div class="uk-width-1-2@s detail-summary">
-                <h1 class="mono">About {{ project.name }}</h1>
-
-                <p class="serif">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe delectus assumenda architecto quaerat nesciunt cumque quia officia dicta porro ipsam soluta cupiditate, itaque laudantium expedita.</p>
-                <p class="serif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, consequuntur.</p>
+                <h3 class="mono">About {{ project.name }}</h3>
+                <ul uk-accordion>
+                    <li class="uk-open">
+                        <a class="uk-accordion-title" href="#">Technical Summary</a>
+                        <div class="uk-accordion-content">
+                            <span class="serif">
+                                {{ project.projectspecs.technical_summary|linebreaks }}
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Best Features</a>
+                        <div class="uk-accordion-content">
+                            <span class="serif">
+                                {{ project.projectspecs.best_features|linebreaks }}
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Future Plans</a>
+                        <div class="uk-accordion-content">
+                            <span class="serif">
+                                {{ project.projectspecs.future_plans|linebreaks }}
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Things I Learned</a>
+                        <div class="uk-accordion-content">
+                            <span class="serif">
+                                {{ project.projectspecs.things_learned|linebreaks }}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="detail-header uk-height-large uk-width-1-2@s"
                 data-src="{{ project.specs.preview.url }}"

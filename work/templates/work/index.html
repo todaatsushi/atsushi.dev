@@ -35,7 +35,7 @@
                                 <div>
                                     <div class="uk-card-body">
                                         <h3 class="uk-card-title"><a href="{% url 'view-project' p.url_slug %}">{{ p.name }}</a></h3>
-                                        <p class="serif">{{ p.description }}</p>
+                                        <p class="serif">{{ p.description|linebreaks }}</p>
                                     </div>
                                 </div>
                             </div>

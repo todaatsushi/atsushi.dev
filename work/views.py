@@ -9,15 +9,6 @@ from work.forms import CreateUpdateProject, CreateUpdateSpecs
 from work.helper import unpack
 
 
-LANGUAGES = unpack([
-    l.languages for l in Project.objects.all()
-])
-
-TECHNOLOGIES = unpack ([
-    t.stack for t in Project.objects.all()
-])
-
-
 class ProjectIndexView(ListView):
     model = Project
     template_name = 'work/index.html'
@@ -25,9 +16,17 @@ class ProjectIndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        LANGUAGES = unpack([
+            l.languages for l in Project.objects.all()
+        ])
+
+        TECHNOLOGIES = unpack ([
+            t.stack for t in Project.objects.all()
+        ])
+
         context['langs'] = LANGUAGES
         context['techs'] = TECHNOLOGIES
-        context['current'] = Project.objects.get(current=True)
         context['show_nav'] = True
         return context
 
@@ -45,7 +44,6 @@ class ProjectDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current'] = Project.objects.get(current=True)
         context['show_nav'] = True
         return context
 
@@ -125,8 +123,8 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
 
 
 
-def project_update(request, url_slug):
-    project = get_object_or_404(Project, url_slug=url_slug)
+def project_update(request, slug):
+    project = get_object_or_404(Project, url_slug=slug)
 
     # Form handling
     if request.method == 'POST':
@@ -136,7 +134,7 @@ def project_update(request, url_slug):
         specs_form = CreateUpdateSpecs(
             request.POST,
             request.FILES,
-            instance=project.specs)
+            instance=project.projectspecs)
 
         if project_form.is_valid() and specs_form.is_valid():
             import re
@@ -163,7 +161,7 @@ def project_update(request, url_slug):
 
     # Populate form
     project_form = CreateUpdateProject(instance=project)
-    specs_form = CreateUpdateSpecs(instance=project.specs)
+    specs_form = CreateUpdateSpecs(instance=project.projectspecs)
     
     context = {
         'project': project,
