@@ -1,8 +1,6 @@
 from django.test import TestCase
-from django.urls import reverse
 
 from work.forms import CreateUpdateProject, CreateUpdateSpecs
-from work.models import Project
 
 
 class CreateProject(TestCase):

@@ -16,13 +16,16 @@ class ProjectTestCase(TestCase):
         self.assertEqual(project.__repr__(), project.name)
         self.assertEqual(project.__str__(), project.name)
 
-    def test_project_gets_work(self):
+    def test_project_get_lang(self):
         project = self.create_project()
 
         expected_langs = ['JavaScript', 'C']
-        expected_stack = ['React', 'Node']
-
         self.assertEqual(expected_langs, project.get_languages())
+
+    def test_project_get_stack(self):
+        project = self.create_project()
+
+        expected_stack = ['React', 'Node']
         self.assertEqual(expected_stack, project.get_stack())
 
     def test_project_set_current(self):

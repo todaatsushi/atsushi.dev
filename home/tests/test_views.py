@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class AdminUserTestCase(LiveServerTestCase):
+class ContactAtsushiTestCase(LiveServerTestCase):
 
     def setUp(self):
         self.selenium = webdriver.Firefox()
