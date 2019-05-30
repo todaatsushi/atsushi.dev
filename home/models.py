@@ -10,4 +10,7 @@ class Feedback(models.Model):
     datetime = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'Feedback {self.name}'
+        return f'Feedback {self.name} @ {self.datetime}'
+
+    def __repr__(self):
+        return f'Feedback {self.name} @ {self.datetime}'
