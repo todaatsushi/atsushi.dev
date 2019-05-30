@@ -4,13 +4,10 @@ from work.models import Project, ProjectSpecs
 
 
 class ProjectTestCase(TestCase):
-    
+
     def create_project(self):
-        return Project.objects.create(name='Test', url_slug='test', description='test',
-                link='http://www.test.com', repository='http://www.test.com',
-                languages='JavaScript,C', stack='React,Node', hosting='Heroku',
-                current=False, public=False
-                )
+        from work.tests.helper import create_project as cp
+        return cp()
 
     def test_can_make_project(self):
         project = self.create_project()
@@ -46,13 +43,10 @@ class ProjectTestCase(TestCase):
 
 
 class ProjectSpecsTestCase(TestCase):
-    
+
     def create_project(self):
-        return Project.objects.create(name='Test', url_slug='test', description='test',
-                link='http://www.test.com', repository='http://www.test.com',
-                languages='JavaScript,C', stack='React,Node', hosting='Heroku',
-                current=False, public=False
-                )
+        from work.tests.helper import create_project as cp
+        return cp()
 
     def test_project_specs_created(self):
         project = self.create_project()
