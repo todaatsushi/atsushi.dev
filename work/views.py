@@ -85,35 +85,6 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         return reverse('view-project', kwargs={'slug': self.object.url_slug})
 
 
-class ProjectUpdateView(LoginRequiredMixin, UpdateView):
-    model = Project
-    template_name = 'work/update.html'
-    form_class = CreateUpdateProject
-    slug_field = 'url_slug'
-    login_url = '/'
-    redirect_field_name = 'redirect_to'
-
-    def form_valid(self, form):
-        import re
-
-        # Make valid URL_SLUG
-        slug = form.instance.name.lower()
-        slug = slug.replace(" ", "-")
-        slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
-
-        form.instance.url_slug = slug
-
-        # Ensure there is only one current project
-        if form.instance.current:
-            for p in Project.objects.all():
-                p.current = False
-                p.save()
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse('view-project', kwargs={'slug': self.object.url_slug})
-
-
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'work/delete.html'
@@ -170,3 +141,33 @@ def project_update(request, slug):
     }
 
     return render(request, 'work/update.html', context)
+
+
+
+# class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+#     model = Project
+#     template_name = 'work/update.html'
+#     form_class = CreateUpdateProject
+#     slug_field = 'url_slug'
+#     login_url = '/'
+#     redirect_field_name = 'redirect_to'
+
+#     def form_valid(self, form):
+#         import re
+
+#         # Make valid URL_SLUG
+#         slug = form.instance.name.lower()
+#         slug = slug.replace(" ", "-")
+#         slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
+
+#         form.instance.url_slug = slug
+
+#         # Ensure there is only one current project
+#         if form.instance.current:
+#             for p in Project.objects.all():
+#                 p.current = False
+#                 p.save()
+#         return super().form_valid(form)
+
+#     def get_success_url(self):
+#         return reverse('view-project', kwargs={'slug': self.object.url_slug})
