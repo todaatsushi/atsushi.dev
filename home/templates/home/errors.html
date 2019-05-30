@@ -1,0 +1,29 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home/css/desktop/contact.css' %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'home/js/contact.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Error: {% block code %}{% endblock %}
+{% endblock %}
+
+{% block main %}
+    <section id="contact-main" class="uk-container uk-flex uk-flex-center uk-flex-around uk-flex-column uk-height-large uk-width-1-1 uk-padding-large">
+        <h1 class="mono"><span class="misc1">Sorry!</span> This is <span class="reserved">unexpected</span>...</h1>
+
+        {% block reasoning %}{% endblock %}
+
+        <p class="serif">
+            You can contact me via the <a href="{% url 'contact' %}" class="link-1">contact page</a> and let me know what the issue is.
+        </p>
+        <p class="serif">
+            Also feel free to reach out on <a href="https://github.com/broadsinatlanta/atsushi.dev" class="link-2">GitHub</a>!
+        </p>
+    </section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'home/errors.html' %}
+
+{% block title %}
+    Error: {% block code %}{% endblock %}
+{% endblock %}
+
+{% block reasoning %}
+    <p class="serif">There's been a 500! There's a error running in the code somewhere.</p>
+
+    <h3 class="mono">It's not you, it's me...</h3>
+{% endblock %}

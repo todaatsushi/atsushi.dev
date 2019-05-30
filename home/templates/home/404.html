@@ -1,0 +1,11 @@
+{% extends 'home/errors.html' %}
+
+{% block title %}
+    Error: {% block code %}{% endblock %}
+{% endblock %}
+
+{% block reasoning %}
+    <p class="serif">
+        There's been a 404! This means a page that doesn't exist has been requested. Check the URL or report a broken link!
+    </p>
+{% endblock %}
