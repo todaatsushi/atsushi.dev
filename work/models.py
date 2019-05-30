@@ -44,14 +44,14 @@ class ProjectSpecs(models.Model):
         primary_key=True,
     )
 
-    technical_summary=models.TextField(null=True, default='To be added.')
-    best_features=models.TextField(null=True, default='To be added.')
-    future_plans=models.TextField(null=True, default='To be added.')
-    things_learned=models.TextField(null=True, default='To be added.')
+    technical_summary=models.TextField(default='To be added.')
+    best_features=models.TextField(default='To be added.')
+    future_plans=models.TextField(default='To be added.')
+    things_learned=models.TextField(default='To be added.')
 
     # Index Screenshot
-    preview = models.ImageField(null=True, upload_to='thumbnails/')
-    header = models.ImageField(null=True, upload_to='headers/')
+    preview = models.ImageField(default='default.png', upload_to='thumbnails/')
+    header = models.ImageField(default='default.png', upload_to='headers/')
 
     def __repr__(self):
         return f'{self.project.name} - Specs'
