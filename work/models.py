@@ -1,5 +1,7 @@
 from django.db import models
 
+from PIL import Image
+
 
 class Project(models.Model):
     # Descriptive Info
@@ -50,11 +52,20 @@ class ProjectSpecs(models.Model):
     things_learned=models.TextField(default='To be added.')
 
     # Index Screenshot
-    preview = models.ImageField(default='default.png', upload_to='thumbnails/')
-    header = models.ImageField(default='default.png', upload_to='headers/')
+    preview = models.ImageField(default='default.png', upload_to='thumbnails')
+    header = models.ImageField(default='default.png', upload_to='headers')
 
     def __repr__(self):
         return f'{self.project.name} - Specs'
 
     def __str__(self):
         return f'{self.project.name} - Specs'
+
+    def save(self, *args, **kwargs):
+        super().save()
+
+        preview = Image.open(self.preview.path)
+        header = Image.open(self.header.path)
+
+        preview.save(self.preview.path)
+        header.save(self.header.path)

@@ -36,6 +36,10 @@
     text-align: justify;
 }
 
+#desc-hr {
+    border-color: #E5E5E5;
+}
+
 .project-header {
     color: white;
     letter-spacing: 2px;
