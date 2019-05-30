@@ -14,4 +14,4 @@ def create_project_specs(sender, instance, created, **kwargs):
 # Save new profile after creation
 @receiver(post_save, sender=Project)
 def save_project_specs(sender, instance, **kwargs):
-    instance.specs.save()
+    instance.projectspecs.save()

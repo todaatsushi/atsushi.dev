@@ -50,8 +50,8 @@ class ProjectSpecs(models.Model):
     things_learned=models.TextField(null=True, default='To be added.')
 
     # Index Screenshot
-    preview = models.ImageField(null=True, upload_to='thumbnails')
-    header = models.ImageField(null=True, upload_to='headers')
+    preview = models.ImageField(null=True, upload_to='thumbnails/')
+    header = models.ImageField(null=True, upload_to='headers/')
 
     def __repr__(self):
         return f'{self.project.name} - Specs'
