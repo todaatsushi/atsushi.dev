@@ -11,6 +11,7 @@
 
 {% block main %}
     {% with project.name as name %}
+    <img src="{{ project.projectspecs.preview.url }}" alt="Test image">
         <article class="uk-article uk-grid-small" uk-grid>
             <div class="uk-width-1-2@s detail-summary">
                 <h3 class="mono">About {{ project.name }}</h3>
@@ -50,28 +51,30 @@
                 </ul>
             </div>
             <div class="detail-header uk-height-large uk-width-1-2@s"
-                data-src="{{ project.specs.preview.url }}"
+                data-src="{{ project.projectspecs.preview.url }}"
                 uk-img>
                 <div class="detail-info">
                     <h1 class="project-header mono">{{ project.name }}</h1>
                     <div class="detail-buttons">
                         <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank">App</a>
-                        <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Details</button>
+                        <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Specs</button>
                     </div>
                 </div>
                 
             </div>
     
             <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-                <div class="uk-offcanvas-bar uk-background-default">
+                <div class="uk-offcanvas-bar uk-background-muted">
             
                     <button class="uk-offcanvas-close" type="button" uk-close></button>
             
                     <h3 class="mono"><span class="reserved">{{ project.name }}:</span> 
-                        <span class="misc2">Details & Links</span>
+                        <span class="misc2">Specs & Links</span>
                     </h3>
-    
-                    <dl class="uk-description-list">
+
+                    <hr id="desc-hr">
+
+                    <dl class="uk-description-list uk-description-list-divider">
                         <dt class="mono"><span class="misc">Links</span></dt>
                         <dd class="serif">
                             <ul class="uk-list uk-list-bullet">
