@@ -1,6 +1,7 @@
 from django.db import models
 
 from PIL import Image
+import re
 
 
 class Project(models.Model):
@@ -25,6 +26,14 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def generate_slug(self):
+        # Make valid URL_SLUG
+        slug = self.name.lower()
+        slug = slug.replace(" ", "-")
+        slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
+
+        self.url_slug = slug
 
     def get_languages(self):
         return self.languages.split(',')

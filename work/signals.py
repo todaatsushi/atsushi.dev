@@ -1,4 +1,4 @@
-from django.db.models.signals import post_save, post_delete, pre_delete
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.core.files.storage import default_storage
 
@@ -6,6 +6,15 @@ import os
 from django.conf import settings
 
 from work.models import Project, ProjectSpecs
+
+
+# Ensure project has url_slug on creation
+@receiver(post_save, sender=Project)
+def ensure_slug_exists(sender, instance, created, **kwargs):
+    if created:
+        if not instance.url_slug:
+            instance.generate_slug()
+            instance.save()
 
 
 # when post_save was called
