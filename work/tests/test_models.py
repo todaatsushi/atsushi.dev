@@ -1,12 +1,19 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import reverse
+from django.conf import settings
 
+import pathlib
+import os
+
+from work.tests.helper import create_project as cp
+from work.tests.helper import create_dummy_image as img
 from work.models import Project, ProjectSpecs
+from work.forms import CreateUpdateSpecs
 
 
 class ProjectTestCase(TestCase):
 
     def create_project(self):
-        from work.tests.helper import create_project as cp
         return cp()
 
     def test_can_make_project(self):
@@ -48,8 +55,10 @@ class ProjectTestCase(TestCase):
 class ProjectSpecsTestCase(TestCase):
 
     def create_project(self):
-        from work.tests.helper import create_project as cp
         return cp()
+
+    def create_image(self):
+        return img()
 
     def test_project_specs_created(self):
         project = self.create_project()
@@ -60,4 +69,34 @@ class ProjectSpecsTestCase(TestCase):
         self.assertEqual(project.projectspecs.__repr__(), 'Test - Specs')
         self.assertEqual(project.projectspecs.__str__(), 'Test - Specs')
 
-    
+    def test_images_are_deleted_on_instance_delete(self):
+        # https://stackoverflow.com/a/34276961
+        specs = self.create_project().projectspecs
+        data = specs.__dict__
+
+        img = self.create_image()
+
+        data['preview'] = img
+        data['header'] = img
+
+        form = CreateUpdateSpecs(instance=specs, data=data)
+        self.assertTrue(form.is_valid())
+
+        form.save()
+
+        test_image_paths = [
+            pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'previews/test.png')),
+            pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'headers/test.png')),
+            ]
+
+        # Check files were uploaded
+        for p in test_image_paths:
+            self.assertTrue(p.is_file())
+
+        Project.objects.first().delete()
+
+        # Check files were deleted
+        for p in test_image_paths:
+            if p.is_file():
+                p.unlink()
+                raise AssertionError('File has not been deleted.')

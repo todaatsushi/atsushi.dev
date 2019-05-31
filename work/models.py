@@ -52,7 +52,7 @@ class ProjectSpecs(models.Model):
     things_learned=models.TextField(default='To be added.')
 
     # Index Screenshot
-    preview = models.ImageField(default='default.png', upload_to='thumbnails')
+    preview = models.ImageField(default='default.png', upload_to='previews')
     header = models.ImageField(default='default.png', upload_to='headers')
 
     def __repr__(self):
