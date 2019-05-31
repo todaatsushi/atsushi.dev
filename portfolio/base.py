@@ -114,7 +114,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'portfolio/staticfiles')
 STATIC_URL = '/static/'
 
 # Media Files
@@ -122,12 +122,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 # DJANGO STORES UPLOADED FILES HERE
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'portfolio/media')
 
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

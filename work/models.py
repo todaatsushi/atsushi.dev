@@ -64,6 +64,7 @@ class ProjectSpecs(models.Model):
     def save(self, *args, **kwargs):
         super().save()
 
+
         preview = Image.open(self.preview.path)
         header = Image.open(self.header.path)
 
