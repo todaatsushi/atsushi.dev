@@ -13,90 +13,82 @@ from work.forms import CreateUpdateSpecs
 
 class ProjectTestCase(TestCase):
 
-    def create_project(self):
-        return cp()
+    def setUp(self):
+        self.project = cp()
 
     def test_can_make_project(self):
-        project = self.create_project()
-
-        self.assertIsInstance(project, Project)
-        self.assertEqual(project.__repr__(), project.name)
-        self.assertEqual(project.__str__(), project.name)
+        self.assertIsInstance(self.project, Project)
+        self.assertEqual(self.project.__repr__(), self.project.name)
+        self.assertEqual(self.project.__str__(), self.project.name)
 
     def test_project_get_lang(self):
-        project = self.create_project()
-
         expected_langs = ['JavaScript', 'C']
-        self.assertEqual(expected_langs, project.get_languages())
+        self.assertEqual(expected_langs, self.project.get_languages())
 
     def test_project_get_stack(self):
-        project = self.create_project()
-
         expected_stack = ['React', 'Node']
-        self.assertEqual(expected_stack, project.get_stack())
+        self.assertEqual(expected_stack, self.project.get_stack())
 
     def test_project_set_current(self):
-        project = self.create_project()
+        self.assertFalse(self.project.current)
 
-        self.assertFalse(project.current)
-
-        project.set_current(True)
-        self.assertTrue(project.current)
+        self.project.set_current(True)
+        self.assertTrue(self.project.current)
 
     def test_project_set_public(self):
-        project = self.create_project()
+        self.assertFalse(self.project.public)
 
-        self.assertFalse(project.public)
-
-        project.set_public(True)
-        self.assertTrue(project.public)
+        self.project.set_public(True)
+        self.assertTrue(self.project.public)
 
 
 class ProjectSpecsTestCase(TestCase):
 
-    def create_project(self):
-        return cp()
+    def setUp(self):
+        self.project = cp()
+        self.specs = self.project.projectspecs
+        self.data = self.specs.__dict__
 
-    def create_image(self):
-        return img()
+    def testing_media(self):
+        return self.settings(MEDIA_ROOT=os.path.join(settings.BASE_DIR, 'test_media'))
+
+    def create_image(self, name='test.png'):
+        return img(name)
 
     def test_project_specs_created(self):
-        project = self.create_project()
-        self.assertIsInstance(project.projectspecs, ProjectSpecs)
+        self.assertIsInstance(self.specs, ProjectSpecs)
 
     def test_project_specs_names(self):
-        project = self.create_project()
-        self.assertEqual(project.projectspecs.__repr__(), 'Test - Specs')
-        self.assertEqual(project.projectspecs.__str__(), 'Test - Specs')
+        self.assertEqual(self.specs.__repr__(), 'Test - Specs')
+        self.assertEqual(self.specs.__str__(), 'Test - Specs')
 
     def test_images_are_deleted_on_instance_delete(self):
-        # https://stackoverflow.com/a/34276961
-        specs = self.create_project().projectspecs
-        data = specs.__dict__
 
-        img = self.create_image()
+        with self.testing_media():
+            # https://stackoverflow.com/a/34276961
+            img = self.create_image()
 
-        data['preview'] = img
-        data['header'] = img
+            self.data['preview'] = img
+            self.data['header'] = img
 
-        form = CreateUpdateSpecs(instance=specs, data=data)
-        self.assertTrue(form.is_valid())
+            form = CreateUpdateSpecs(instance=self.specs, data=self.data)
+            self.assertTrue(form.is_valid())
 
-        form.save()
+            form.save()
 
-        test_image_paths = [
-            pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'previews/test.png')),
-            pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'headers/test.png')),
+            test_image_paths = [
+                pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'previews/test.png')),
+                pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'headers/test.png')),
             ]
 
-        # Check files were uploaded
-        for p in test_image_paths:
-            self.assertTrue(p.is_file())
+            # Check files were uploaded
+            for p in test_image_paths:
+                self.assertTrue(p.is_file())
 
-        Project.objects.first().delete()
+            Project.objects.first().delete()
 
-        # Check files were deleted
-        for p in test_image_paths:
-            if p.is_file():
-                p.unlink()
-                raise AssertionError('File has not been deleted.')
+            # Check files were deleted
+            for p in test_image_paths:
+                if p.is_file():
+                    p.unlink()
+                    raise AssertionError('File has not been deleted.')

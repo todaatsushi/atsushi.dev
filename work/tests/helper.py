@@ -12,7 +12,7 @@ def create_project():
             current=False, public=False
             )
 
-def create_dummy_image():
+def create_dummy_image(name):
     # New PIL Image
     image = Image.new(mode='RGB', size=(200,200))
 
@@ -26,6 +26,6 @@ def create_dummy_image():
     image_io.seek(0)
 
     return InMemoryUploadedFile(
-        image_io, None, 'test.png', 'image/png', len(image_io.getvalue()), None
+        image_io, None, name, 'image/png', len(image_io.getvalue()), None
     )
     
