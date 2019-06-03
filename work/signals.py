@@ -28,23 +28,31 @@ def create_project_specs(sender, instance, created, **kwargs):
 @receiver(post_delete, sender=Project)
 # delete old preview and header shots when specs is updated
 @receiver(post_save, sender=ProjectSpecs)
-def delete_header_and_preview_after_delete(sender, instance, **kwargs):
+def delete_unused_image_files(sender, instance, **kwargs):
+
+    media_root = settings.MEDIA_ROOT
+    
     # Get all current used previews & headers
     in_use = [
-        spec.preview.url.replace('/media/', f'{settings.MEDIA_ROOT}/') for spec in ProjectSpecs.objects.all()
+        spec.preview.url.replace('/media/', f'{media_root}/') for spec in ProjectSpecs.objects.all()
         ] + [
-        spec.header.url.replace('/media/', f'{settings.MEDIA_ROOT}/') for spec in ProjectSpecs.objects.all()
+        spec.header.url.replace('/media/', f'{media_root}/') for spec in ProjectSpecs.objects.all()
         ]
 
     # Image locations
-    header_dir = os.path.join(settings.MEDIA_ROOT, 'headers')
-    prev_dir = os.path.join(settings.MEDIA_ROOT, 'previews')
+    header_dir = os.path.join(media_root, 'headers')
+    prev_dir = os.path.join(media_root, 'previews')
 
     all_headers = [f'{header_dir}/{file}' for file in os.listdir(header_dir)]
     all_prevs = [f'{prev_dir}/{file}' for file in os.listdir(prev_dir)]
     all_imgs = all_headers + all_prevs
 
     not_needed = [path for path in all_imgs if path not in in_use]
+    
+    # print("In use: ", in_use, '\n')
+    # print('dirs: ', header_dir, prev_dir, '\n')
+    # print('all current: ', all_imgs, '\n')
+    # print('not needed: ', not_needed)
     
     for path in not_needed:
         if path:

@@ -109,11 +109,11 @@
 
     <div id="admin-ctrl">
         {% if user.is_authenticated %}
-            <a href="{% url 'update-project' project.url_slug %}">Update</a>
-            <a href="{% url 'delete-project' project.url_slug %}">Delete</a>
+            <a href="{% url 'update-project' project.url_slug %}" class="link-1">Update</a>
+            <a href="{% url 'delete-project' project.url_slug %}" class="link-2">Delete</a>
         {% endif %}
     
-        <a href="{% url 'all-projects' %}">Back</a>
+        <a href="{% url 'all-projects' %}" class="link-3">Back</a>
     </div>
 {% endblock %}
 

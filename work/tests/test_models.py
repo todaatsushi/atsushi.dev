@@ -13,8 +13,12 @@ from work.forms import CreateUpdateSpecs
 
 class ProjectTestCase(TestCase):
 
+    def testing_media(self):
+        return self.settings(MEDIA_ROOT=os.path.join(settings.PROJECT_DIR, 'test_media'))
+
     def setUp(self):
-        self.project = cp()
+        with self.testing_media():
+            self.project = cp()
 
     def test_can_make_project(self):
         self.assertIsInstance(self.project, Project)
@@ -44,13 +48,14 @@ class ProjectTestCase(TestCase):
 
 class ProjectSpecsTestCase(TestCase):
 
-    def setUp(self):
-        self.project = cp()
-        self.specs = self.project.projectspecs
-        self.data = self.specs.__dict__
-
     def testing_media(self):
         return self.settings(MEDIA_ROOT=os.path.join(settings.PROJECT_DIR, 'test_media'))
+
+    def setUp(self):
+        with self.testing_media():
+            self.project = cp()
+            self.specs = self.project.projectspecs
+            self.data = self.specs.__dict__
 
     def create_image(self, name='test.png'):
         return img(name)
@@ -61,31 +66,6 @@ class ProjectSpecsTestCase(TestCase):
     def test_project_specs_names(self):
         self.assertEqual(self.specs.__repr__(), 'Test - Specs')
         self.assertEqual(self.specs.__str__(), 'Test - Specs')
-
-    # def test_delete_field_image(self):
-    #     # with self.testing_media():
-    #     # Upload test image file to avoid deleting default
-    #     img = self.create_image()
-
-    #     self.data['preview'] = img
-    #     self.data['header'] = img
-
-    #     form = CreateUpdateSpecs(instance=self.specs, data=self.data)
-    #     self.assertTrue(form.is_valid())
-
-    #     # New image has been uploaded
-    #     form.save()
-    #     self.assertTrue(pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'previews/test.png')).is_file())
-
-    #     # Now delete that new image
-    #     self.specs.delete_field_image('preview')
-    #     self.specs.delete_field_image('header')
-
-    #     preview_deleted = pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'previews/test.png')).is_file()
-    #     header_deleted = pathlib.Path(os.path.join(settings.MEDIA_ROOT, 'headers/test.png')).is_file()
-
-    #     self.assertFalse(preview_deleted)
-    #     self.assertFalse(header_deleted)
 
     def test_images_are_deleted_on_instance_delete(self):
 

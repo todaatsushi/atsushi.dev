@@ -13,9 +13,13 @@ from work.tests.helper import create_project as cp
 
 class CreateProject(TestCase):
 
+    def testing_media(self):
+        return self.settings(MEDIA_ROOT=os.path.join(settings.PROJECT_DIR, 'test_media'))
+
     def setUp(self):
-        self.project = cp()
-        self.data = self.project.__dict__
+        with self.testing_media():
+            self.project = cp()
+            self.data = self.project.__dict__
 
     def test_projects_form_can_validate_valid_info(self):
         del self.data['_state']
@@ -46,13 +50,15 @@ class CreateProject(TestCase):
 
 class UpdateProjectSpecs(TestCase):
 
-    def setUp(self):
-        self.project = cp()
-        self.specs = self.project.projectspecs
-        self.data = self.specs.__dict__
-
     def testing_media(self):
-        return self.settings(MEDIA_ROOT=os.path.join(settings.BASE_DIR, 'test_media'))
+        return self.settings(MEDIA_ROOT=os.path.join(settings.PROJECT_DIR, 'test_media'))
+
+    def setUp(self):
+        with self.testing_media():
+            self.project = cp()
+            self.specs = self.project.projectspecs
+            self.data = self.specs.__dict__
+
 
     def create_image(self, name='test.png'):
         return img(name)
@@ -72,16 +78,17 @@ class UpdateProjectSpecs(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_updating_specs_works(self):
-        form = CreateUpdateSpecs(instance=self.specs, data=self.data)
-        self.assertTrue(form.is_valid())
+        with self.testing_media():
+            form = CreateUpdateSpecs(instance=self.specs, data=self.data)
+            self.assertTrue(form.is_valid())
 
-        # Current default entry for specs field
-        self.assertTrue(self.specs.technical_summary == 'To be added.')
+            # Current default entry for specs field
+            self.assertTrue(self.specs.technical_summary == 'To be added.')
 
-        form.data['technical_summary'] = 'Test summary'
+            form.data['technical_summary'] = 'Test summary'
 
-        form.save()
-        self.assertTrue(self.specs.technical_summary == 'Test summary')
+            form.save()
+            self.assertTrue(self.specs.technical_summary == 'Test summary')
 
     def test_files_upload_correctly(self):
         # https://stackoverflow.com/a/34276961
