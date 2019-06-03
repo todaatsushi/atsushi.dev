@@ -1,7 +1,10 @@
 from django.db import models
+from django.conf import settings
 
 from PIL import Image
 import re
+import pathlib
+import os
 
 
 class Project(models.Model):
@@ -60,7 +63,7 @@ class ProjectSpecs(models.Model):
     future_plans=models.TextField(default='To be added.')
     things_learned=models.TextField(default='To be added.')
 
-    # Index Screenshot
+    # Index Screenshots
     preview = models.ImageField(default='default.png', upload_to='previews')
     header = models.ImageField(default='default.png', upload_to='headers')
 
@@ -71,8 +74,10 @@ class ProjectSpecs(models.Model):
         return f'{self.project.name} - Specs'
 
     def save(self, *args, **kwargs):
+        """
+        Save images directly to the file system.
+        """
         super().save()
-
 
         preview = Image.open(self.preview.path)
         header = Image.open(self.header.path)

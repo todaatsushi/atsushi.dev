@@ -1,4 +1,4 @@
-from django.db.models.signals import post_save, post_delete
+from django.db.models.signals import post_save, post_delete, pre_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage
 
@@ -17,29 +17,28 @@ def ensure_slug_exists(sender, instance, created, **kwargs):
             instance.save()
 
 
-# when post_save was called
+# when post_save is called, make obj
 @receiver(post_save, sender=Project)
 def create_project_specs(sender, instance, created, **kwargs):
     if created:
         ProjectSpecs.objects.create(project=instance)
 
-
-# Save new profile after creation
-@receiver(post_save, sender=Project)
-def save_project_specs(sender, instance, **kwargs):
-    instance.projectspecs.save()
-
-
 # Delete preview and header files after project delete
 # https://stackoverflow.com/questions/55480222/remove-images-from-media-folder-after-deleting-blog-post
 @receiver(post_delete, sender=Project)
+# delete old preview and header shots when specs is updated
+@receiver(post_save, sender=ProjectSpecs)
 def delete_header_and_preview_after_delete(sender, instance, **kwargs):
     # Get all current used previews & headers
-    in_use = [spec.preview.url for spec in ProjectSpecs.objects.all()] + [spec.header.url for spec in ProjectSpecs.objects.all()]
+    in_use = [
+        spec.preview.url.replace('/media/', f'{settings.MEDIA_ROOT}/') for spec in ProjectSpecs.objects.all()
+        ] + [
+        spec.header.url.replace('/media/', f'{settings.MEDIA_ROOT}/') for spec in ProjectSpecs.objects.all()
+        ]
 
     # Image locations
-    header_dir = os.path.join(settings.MEDIA_ROOT, 'headers/')
-    prev_dir = os.path.join(settings.MEDIA_ROOT, 'previews/')
+    header_dir = os.path.join(settings.MEDIA_ROOT, 'headers')
+    prev_dir = os.path.join(settings.MEDIA_ROOT, 'previews')
 
     all_headers = [f'{header_dir}/{file}' for file in os.listdir(header_dir)]
     all_prevs = [f'{prev_dir}/{file}' for file in os.listdir(prev_dir)]
@@ -50,3 +49,5 @@ def delete_header_and_preview_after_delete(sender, instance, **kwargs):
     for path in not_needed:
         if path:
             default_storage.delete(path)
+
+

@@ -5,7 +5,11 @@ from work.models import Project
 from PIL import Image
 from io import BytesIO
 
+
 def create_project():
+    """
+    Returns a newly created Project object that has already been saved in the db.
+    """
     return Project.objects.create(name='Test', url_slug='test', description='test',
             link='http://www.test.com', repository='http://www.test.com',
             languages='JavaScript,C', stack='React,Node', hosting='Heroku',
@@ -13,6 +17,9 @@ def create_project():
             )
 
 def create_dummy_image(name):
+    """
+    Returns a newly created png format image file.
+    """
     # New PIL Image
     image = Image.new(mode='RGB', size=(200,200))
 
