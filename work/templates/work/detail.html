@@ -10,110 +10,110 @@
 {% endblock %}
 
 {% block main %}
-    {% with project.name as name %}
-        <article class="uk-article uk-grid-small" uk-grid>
-            <div class="uk-width-1-2@s detail-summary">
-                <h3 class="mono">About {{ project.name }}</h3>
-                <ul uk-accordion>
-                    <li class="uk-open">
-                        <a class="uk-accordion-title" href="#">Technical Summary</a>
-                        <div class="uk-accordion-content">
-                            <span class="serif">
-                                {{ project.projectspecs.technical_summary|linebreaks }}
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Best Features</a>
-                        <div class="uk-accordion-content">
-                            <span class="serif">
-                                {{ project.projectspecs.best_features|linebreaks }}
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Future Plans</a>
-                        <div class="uk-accordion-content">
-                            <span class="serif">
-                                {{ project.projectspecs.future_plans|linebreaks }}
-                            </span>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Things I Learned</a>
-                        <div class="uk-accordion-content">
-                            <span class="serif">
-                                {{ project.projectspecs.things_learned|linebreaks }}
-                            </span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="detail-header uk-height-large uk-width-1-2@s"
-                data-src="{{ project.projectspecs.header.url }}"
-                uk-img>
-                <div class="detail-info">
-                    <h1 class="project-header mono">{{ project.name }}</h1>
-                    <div class="detail-buttons">
-                        <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank">App</a>
-                        <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Specs</button>
+    <article class="uk-article uk-grid-small" uk-grid>
+        <div class="uk-width-1-2@s detail-summary">
+            <h3 class="mono">About {{ project.name }}</h3>
+            <ul uk-accordion>
+                <li class="uk-open">
+                    <a class="uk-accordion-title" href="#">Technical Summary</a>
+                    <div class="uk-accordion-content">
+                        <span class="serif">
+                            {{ project.projectspecs.technical_summary|linebreaks }}
+                        </span>
                     </div>
-                </div>
-                
-            </div>
-    
-            <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-                <div class="uk-offcanvas-bar uk-background-muted">
-            
-                    <button class="uk-offcanvas-close" type="button" uk-close></button>
-            
-                    <h3 class="mono"><span class="reserved">{{ project.name }}:</span> 
-                        <span class="misc2">Specs & Links</span>
-                    </h3>
-
-                    <hr id="desc-hr">
-
-                    <dl class="uk-description-list uk-description-list-divider">
-                        <dt class="mono"><span class="misc">Links</span></dt>
-                        <dd class="serif">
-                            <ul class="uk-list uk-list-bullet">
-                                <li class="serif"><a class="link-1" target="__blank" href="{{ project.link }}">Link</a></li>
-                                <li class="serif"><a class="link-1" target="__blank" href="{{ project.repository }}">Repository</a></li>
-                            </ul>
-                        </dd>
-                        <dt class="mono"><span class="misc3">Languages</span></dt>
-                        <dd class="serif">
-                            <ul class="uk-list uk-list-bullet">
-                                {% for l in project.get_languages %}
-                                    <li class="serif brackets">{{ l }}</li>
-                                {% endfor %}
-                            </ul>
-                        </dd>
-                        <dt class="mono"><span class="comment2">Technologies</span></dt>
-                        <dd class="serif">
-                            <ul class="uk-list uk-list-bullet">
-                                {% for t in project.get_stack %}
-                                    <li class="serif brackets">{{ t }}</li>
-                                {% endfor %}
-                            </ul>
-                        </dd>
-                        <dt class="mono"><span class="function">Hosting</span></dt>
-                        <dd class="serif brackets">
-                            <ul class="uk-list uk-list-bullet">
-                                <li class="serif brackets">{{ project.hosting }}</li>
-                            </ul>
-                        </dd>
-                    </dl>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Best Features</a>
+                    <div class="uk-accordion-content">
+                        <span class="serif">
+                            {{ project.projectspecs.best_features|linebreaks }}
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Future Plans</a>
+                    <div class="uk-accordion-content">
+                        <span class="serif">
+                            {{ project.projectspecs.future_plans|linebreaks }}
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Things I Learned</a>
+                    <div class="uk-accordion-content">
+                        <span class="serif">
+                            {{ project.projectspecs.things_learned|linebreaks }}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="detail-header uk-height-large uk-width-1-2@s overlay-dark rounded"
+            data-src="{{ project.projectspecs.header.url }}"
+            uk-img>
+            <div class="detail-info front">
+                <h1 class="project-header mono">{{ project.name }}</h1>
+                <div class="detail-buttons">
+                    <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank">App</a>
+                    <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Specs</button>
                 </div>
             </div>
-        </article>
-    
+            
+        </div>
+
+        <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+            <div class="uk-offcanvas-bar uk-background-muted">
+        
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+                <h3 class="mono"><span class="reserved">{{ project.name }}:</span> 
+                    <span class="misc2">Specs & Links</span>
+                </h3>
+
+                <hr id="desc-hr">
+
+                <dl class="uk-description-list uk-description-list-divider">
+                    <dt class="mono"><span class="misc">Links</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            <li class="serif"><a class="link-1" target="__blank" href="{{ project.link }}">Link</a></li>
+                            <li class="serif"><a class="link-1" target="__blank" href="{{ project.repository }}">Repository</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="misc3">Languages</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            {% for l in project.get_languages %}
+                                <li class="serif brackets">{{ l }}</li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="comment2">Technologies</span></dt>
+                    <dd class="serif">
+                        <ul class="uk-list uk-list-bullet">
+                            {% for t in project.get_stack %}
+                                <li class="serif brackets">{{ t }}</li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    <dt class="mono"><span class="function">Hosting</span></dt>
+                    <dd class="serif brackets">
+                        <ul class="uk-list uk-list-bullet">
+                            <li class="serif brackets">{{ project.hosting }}</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </article>
+
+    <div id="admin-ctrl">
         {% if user.is_authenticated %}
             <a href="{% url 'update-project' project.url_slug %}">Update</a>
             <a href="{% url 'delete-project' project.url_slug %}">Delete</a>
         {% endif %}
     
         <a href="{% url 'all-projects' %}">Back</a>
-    {% endwith %}
+    </div>
 {% endblock %}
 

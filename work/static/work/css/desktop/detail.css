@@ -1,4 +1,4 @@
-/* Header / Jumbotron */
+/* Picture with title and buttons */
 .detail-header {
     background-size: cover;
     border-radius: 12px;
@@ -7,6 +7,7 @@
     margin-top: 1.3em;
 }
 
+/* Info box on RHS */
 .detail-info {
     position: absolute;
     bottom: 2rem;
@@ -23,6 +24,7 @@
     justify-content: space-around;
 }
 
+/* Left side (info) */
 .detail-summary {
     display: flex;
     flex-direction: column;
@@ -43,3 +45,14 @@
     color: white;
     letter-spacing: 2px;
 }
+
+
+ /* Admin control panel */
+ #admin-ctrl {
+     position: fixed;
+     width: 300px;
+     display: flex;
+     justify-content: space-around;
+     bottom: 15px; 
+     left: 15px;
+ }
