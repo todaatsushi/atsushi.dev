@@ -22,6 +22,7 @@
     padding: 5px 10px;
     margin-top: 10px;
     background-color: #fff;
+    z-index: 10;
 }
 
 #controls > ul.show {
@@ -44,4 +45,10 @@
 #toggle-filter:hover {
     color: #a52e4a;
     text-decoration: none;
+}
+
+/* Card image sizes */
+.card-img {
+    width: 600px; 
+    height: 400px;
 }
