@@ -2,99 +2,80 @@
 {% load static %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/desktop/about.css' %}">
 {% endblock %}
 
 {% block title %}
-    Home
+    About
 {% endblock %}
 
 {% block main %}
-    <div id="splash">
 
-        <div class="def">
-            <h3 class="def-m norm-text">
-                <span class="reserved">class</span> <span class="misc2">AtsushiToda</span>(JuniorSoftwareDeveloper.<span class="name">ForHire</span>):
-            </h3>
-            <h5 class="def-m norm-text m-xs">
-                <span class="comment">
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;""" <br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Web app development with Python, JavaScript,<br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;HTML and CSS along with a bit of R.<br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"""
-                </span>
-            </h5>
-            <h4 class="def-m norm-text">
-                &emsp;&emsp;&emsp;&emsp;
-                <span class="reserved">def</span> <span class="function">__init__</span>(<span class="misc">self</span>, <span class="misc">*</span>args, <span class="misc">**</span>kwargs):
-            </h4>
-            <h5 class="def-m norm-text">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-                <span class="misc">self</span>.status = <span class="comment">'Looking for a junior software development role'</span>
-            </h5>
-            <h5 class="def-m norm-text">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-                <span class="misc">self</span>.languages = [ <span class="comment">'Python'</span>, <span class="comment">'JavaScript (inc. ES6)' </span> ]
-            </h5>
-            <h5 class="def-m norm-text">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-                <span class="misc">self</span>.speciality = <span class="comment">'Web App Development'</span>
-            </h5>
-            <h5 class="def-m norm-text uk-margin-medium-bottom">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-                <span class="misc">self</span>.willing_to_learn = <span class="reserved">True</span>
-            </h5>
-            <!-- <h5 class="def-m norm-text uk-margin-medium-bottom">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <span class="misc">self</span>.portfolio = <span class="misc">portfolio</span>
-            </h5>     -->
-        <!-- <br><br> -->
-            <h5 class="def-m norm-text">
-                &emsp;&emsp;&emsp;&emsp;&ensp;
-                <span class="comment2"># Navigate the site through the functions below!</span>
-            </h5>
-            <a href="{% url 'all-projects' %}" class="site-link var3 uk-margin-medium-bottom">
-                <h4 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">def</span> <span class="function">see_work</span>(<span class="misc">self</span>):
-                </h4>
-                <h5 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">return</span> <span class="function">get_portfolio</span>()
+    <section id="all-about">
+        <section class="step" id="splash" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
+            <div id="welcome-title" class="scrollspy">
+                <h1 class="mono">
+                    Lorem ipsum, dolor sit amet <br> consectetur adipisicing.
+                </h1>
+            </div>
+            <div id="welcome-text" class="scrollspy">
+                <h2 class="serif">
+                    You can get in touch regarding all using the envelope button <br> in the icon nav, or contact in the top nav.
+                </h2>
+            </div>
+        </section>
+
+        <section class="step no-margin-left" uk-grid>
+
+            <div class="uk-width-1-4@s panel-title" id="glance-left" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;">
+                <h1 class="mono uk-margin-medium-top scrollspy underline">
+                    Intro
+                </h1>
+            </div>
+            <div class="uk-width-3-4@s" id="glance-right" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 450;">
+                <h3 class="mono code-text scrollspy">
+                    <span class="reserved">class</span> <span class="misc2">AtsushiToda</span><span class="brackets">(</span><span class="comment2">JuniorDeveloper</span></span>.<span class="misc">forHire</span><span class="brackets">)</span>:
+                </h3>
+
+                <h5 class="mono code-text indent comment scrollspy">
+                    """<br>
+                    This is about me - Atsushi Toda. Osaka born, London raised - I'm an aspiring Software Developer with a background in Analytics and PPC.<br>
+                    <br>
+                    It's a bit of a read but it's interesting. I promise!
+                    <br>
+                    """
                 </h5>
-            </a>
-            <!-- <br><br> -->
-            <a href="{% url 'about' %}" class="site-link var1  uk-margin-medium-bottom">
-                <h4 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">def</span> <span class="function">about_atsushi</span>(<span class="misc">self</span>):
-                </h4>
-                <h5 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">return</span> <span class="function">more_info</span>(<span class="misc">self</span>.about, <span class="misc">self</span>.skills)
+                <h5 class="mono code-block indent scrollspy">
+                    <span class="reserved">def</span> <span class="function">get_overview</span><span class="brackets">(</span><span class="misc3">self</span><span class="brackets">)</span>:
                 </h5>
-            </a>
-
-            <!-- <br><br> -->
-            <a href="{% url 'contact' %}" class="site-link var2">
-                <h4 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">def</span> <span class="function">contact</span>(<span class="misc">self</span>):
-                </h4>
-                <h5 class="def-m norm-text">
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    <span class="reserved">return</span> <span class="function">contactAtsushi</span>()
+                <h5 class="mono code-text indent2 scrollspy">
+                    <span class="misc3">self</span>.skills = [<span class="string">'Web App Development'</span>, <span class="string">'Full Stack Web Development'</span>] 
+                    <br>
+                    <span class="misc3">self</span>.languages = [<span class="string">'Python'</span>, <span class="string">'JavaScript'</span>, <span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'SQL'</span> ]
+                    <br><br>
+                    <span class="misc3">self</span>.goals = <span class="string">'Junior Developer Role At A Great (I'm looking at you!) Company'</span>
                 </h5>
-            </a>
-        </div>
+                <h5 class="mono code-block indent scrollspy">
+                    <span class="reserved">def</span> <span class="function">status</span><span class="brackets">(</span><span class="misc3">self</span><span class="brackets">)</span>:
+                </h5>
+                <h5 class="mono code-text indent2 scrollspy">
+                    <span class="misc3">self</span>.currently = { <br>
 
-        <div class="decor">
-            <div class="circle c1"></div>
-            <div class="circle c2"></div>
-            <div class="circle c3"></div>
-        </div>
+                    <span class="indent">
+                        <span class="comment">'working_on'</span>: {% if not current %} <span class="misc">None</span> {% else %} <a href="{% url 'view-project' current.url_slug %}" class="link-1">'{{ current.name }}'</a> {% endif %}, <span class="comment2"># click the name to see!</span> 
+                    </span><br>
+                    <span class="indent">
+                        <span class="comment">'listening_to'</span>: <span class="misc2">'{{ song }}'</span>,
+                    </span><br>
+                    }
+                </h5>
+            </div>
 
-    </div>
+        </section>
+
+        <section class="step"></section>
+    </section>
+    
 {% endblock %}
 
 <!-- Init -->
@@ -114,3 +95,190 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     <span class="misc">self</span>.portfolio = <span class="misc">portfolio</span>
 </h5> -->
+
+<!-- <div id="splash">
+
+    <div class="def">
+        <h3 class="def-m norm-text">
+            <span class="reserved">class</span> <span class="misc2">AtsushiToda</span>(JuniorSoftwareDeveloper.<span class="name">ForHire</span>):
+        </h3>
+        <h5 class="def-m norm-text m-xs">
+            <span class="comment">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;""" <br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Web app development with Python, JavaScript,<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;HTML and CSS along with a bit of R.<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"""
+            </span>
+        </h5>
+        <h4 class="def-m norm-text">
+            &emsp;&emsp;&emsp;&emsp;
+            <span class="reserved">def</span> <span class="function">__init__</span>(<span class="misc">self</span>, <span class="misc">*</span>args, <span class="misc">**</span>kwargs):
+        </h4>
+        <h5 class="def-m norm-text">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <span class="misc">self</span>.status = <span class="comment">'Looking for a junior software development role'</span>
+        </h5>
+        <h5 class="def-m norm-text">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <span class="misc">self</span>.languages = [ <span class="comment">'Python'</span>, <span class="comment">'JavaScript (inc. ES6)' </span> ]
+        </h5>
+        <h5 class="def-m norm-text">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <span class="misc">self</span>.speciality = <span class="comment">'Web App Development'</span>
+        </h5>
+        <h5 class="def-m norm-text uk-margin-medium-bottom">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <span class="misc">self</span>.willing_to_learn = <span class="reserved">True</span>
+        </h5>
+        <h5 class="def-m norm-text uk-margin-medium-bottom">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span class="misc">self</span>.portfolio = <span class="misc">portfolio</span>
+        </h5>    
+        <h5 class="def-m norm-text">
+            &emsp;&emsp;&emsp;&emsp;&ensp;
+            <span class="comment2"># Navigate the site through the functions below!</span>
+        </h5>
+        <a href="{% url 'all-projects' %}" class="site-link var3 uk-margin-medium-bottom">
+            <h4 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">def</span> <span class="function">see_work</span>(<span class="misc">self</span>):
+            </h4>
+            <h5 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">return</span> <span class="function">get_portfolio</span>()
+            </h5>
+        </a>
+        <a href="{% url 'about' %}" class="site-link var1  uk-margin-medium-bottom">
+            <h4 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">def</span> <span class="function">about_atsushi</span>(<span class="misc">self</span>):
+            </h4>
+            <h5 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">return</span> <span class="function">more_info</span>(<span class="misc">self</span>.about, <span class="misc">self</span>.skills)
+            </h5>
+        </a>
+
+        <a href="{% url 'contact' %}" class="site-link var2">
+            <h4 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">def</span> <span class="function">contact</span>(<span class="misc">self</span>):
+            </h4>
+            <h5 class="def-m norm-text">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <span class="reserved">return</span> <span class="function">contactAtsushi</span>()
+            </h5>
+        </a>
+    </div>
+
+    <div class="decor">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+
+</div> -->
+
+<!-- 
+.def {
+    /* border: 4px solid gold; */
+
+    background-color: #fff;
+
+    width: 50vw;
+    /* height: 30vh; */
+
+    padding: 0;
+    /* margin: 4.7em; */
+
+    padding: 0 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.def h3 {
+    font-size: calc(12px + 0.5vw);
+}
+
+.def h4 {
+    font-size: calc(12px + 0.2vw);
+}
+
+.def h5 {
+    font-size: calc(12px + 0.1vw);
+}
+
+.decor {
+    /* border: 4px solid silver; */
+    width: 25vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    border: 4px solid red;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 50%;
+    margin: 20px;
+  }
+
+.c1 {
+    border: 2px solid #e8c84c;
+}
+
+.c2 {
+    border: 2px solid #d90368;
+}
+
+.c3 {
+    border: 2px solid #00d37e;
+}
+
+
+/* Code Links */
+a.function:link, a.function:visited {
+    font-family: "Overpass Mono", monospace;
+    color: #6adafc;
+}
+
+a:link, a:visited {
+    font-family: "Overpass Mono", monospace;
+    color: #630010;
+}
+
+a:hover, a.function:hover {
+    color: #7d2736;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.000005em;
+}
+
+/* Fade in on hover links */
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+ } 
+
+.site-link:link, .site-link:visited {
+    border-right: 3px solid transparent;
+    transition: border-right 0.5s;
+}
+
+.site-link.var1:hover {
+    border-right: 3px solid #e3b505;
+}
+
+.site-link.var2:hover {
+    border-right: 3px solid #60d394;
+}
+
+.site-link.var3:hover {
+    border-right: 3px solid #f45b69;
+} -->

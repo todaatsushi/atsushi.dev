@@ -21,12 +21,17 @@
 
 .comment {
     font-family: "Overpass Mono", monospace;
-    color: #4b7c8c;
+    color: #1c9363;
 }
 
 .comment2 {
     font-family: "Overpass Mono", monospace;
-    color: #ef798a;
+    color: #faa275;
+}
+
+.string {
+    font-family: "Overpass Mono", monospace;
+    color: #4fa322;
 }
 
 .function {
@@ -36,22 +41,22 @@
 
 .name {
     font-family: "Overpass Mono", monospace;
-    color: #454ade;
+    color: #b2a561;
 }
 
 .misc {
     font-family: "Overpass Mono", monospace;
-    color: #1c9363
+    color: #e6b89c ;
 }
 
 .misc2 {
     font-family: "Overpass Mono", monospace;
-    color: #4fa322;
+    color: #861388;
 }
 
 .misc3 {
     font-family: "Overpass Mono", monospace;
-    color: #a52e4a;
+    color: #af3b6e;
 }
 
 .brackets {
@@ -103,4 +108,29 @@ a.link-5:link, a.link-5:visited {
 a.link-5:hover, a.link-5:active {
     color: #245E5A;
     text-decoration: none;
+}
+
+
+/* Code Formatting Help */
+.code-text {
+    margin: 3px 0;
+    padding: 0;
+}
+
+.code-block {
+    margin: 0;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.indent {
+    margin-left: 3rem;
+}
+
+.indent2 {
+    margin-left: 6rem;
+}
+
+.indent3 {
+    margin-left: 9rem;
 }

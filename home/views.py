@@ -1,13 +1,15 @@
 import os
+from random import randint
 
 from django.core.mail import send_mail
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.views.generic import FormView
 from django.urls import reverse
+from django.db.models import Model
 
 from home.forms import ContactForm
-from home.models import Feedback
+from home.models import Feedback, SongPick
 
 from work.models import Project
 
@@ -55,9 +57,20 @@ def home(request):
 
 
 def about(request):
+    try:
+        current = Project.objects.get(current=True)
+    except Model.DoesNotExist:
+        current = None
+
+    song = SongPick.objects.get(
+        id=randint(1, SongPick.objects.last().id)
+    )
+
     context = {
         'projects': Project.objects.all(),
         'hide_nav': False,
+        'current': current,
+        'song': song,
     }
     return render(request, 'home/about.html', context)
 

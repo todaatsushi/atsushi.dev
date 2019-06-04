@@ -39,9 +39,25 @@
     border-radius: 25px;
 }
 
+.no-margin-left {
+    margin-left: 0;
+}
+
+.underline-1 {
+    border-bottom: 3px solid gold;
+}
+
 /* Debug */
 .border {
     border: 2px solid red;
+}
+
+.border2 {
+    border: 2px solid green;
+}
+
+.border3 {
+    border: 2px solid gold;
 }
 
 /* Center div bg image */
