@@ -43,6 +43,16 @@
     margin-left: 0;
 }
 
+.no-spacing {
+    padding: 0;
+    margin: 0;
+}
+
+.card-scroll {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 .underline-1 {
     border-bottom: 3px solid gold;
 }

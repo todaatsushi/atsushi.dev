@@ -49,9 +49,15 @@ class ContactView(SuccessMessageMixin, FormView):
 
 
 def home(request):
+    try:
+        current = Project.objects.get(current=True)
+    except Model.DoesNotExist:
+        current = None
+
     context = {
         'projects': Project.objects.all(),
         'hide_nav': True,
+        'current': current,
     }
     return render(request, 'home/home.html', context)
 

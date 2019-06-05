@@ -21,12 +21,6 @@
     font-size: calc(3rem + 0.75vw);
 }
 
-
-#splash2 {
-    min-height: 200vh;
-}
-
-
 /* Hide icon-nav initially */
 #icon-nav {
     display: none;
@@ -71,4 +65,87 @@
     font-size: calc(0.6rem + 0.5vw);
     font-family: 'Overpass Mono';
     text-transform: lowercase;
+}
+
+/* Site map (3rd screen) */
+
+/* Each sub-page */
+.step {
+    height: 85vh;
+    width: 100%;
+    margin: 30px 0;
+}
+
+#sitemap {
+    border-left: 2px solid #e3b505;
+    border-right: 2px solid #faa275;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#home-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    align-items: center;
+}
+
+.help-message {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+
+    color: #4fa322;
+}
+
+#welcome-options {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding-left: 5vw;
+}
+
+#welcome-options > div.uk-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding: 0;
+}
+
+/* Quick intro (2nd screen) */
+#quick-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+#quick-bar {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+#quick-left {
+    overflow: hidden;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 0 1rem;
+}
+
+#quick-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quick-right > h3 {
+    text-align: center;
 }
