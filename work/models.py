@@ -20,6 +20,9 @@ class Project(models.Model):
     stack = models.TextField(null=True)
     hosting = models.CharField(max_length=100, null=True)
 
+    # Extra tags (e.g. skills used)
+    extra_tags = models.CharField(default='', null=True, max_length=500)
+
     # Status
     current = models.BooleanField(default=False)
     public = models.BooleanField(default=False)
@@ -43,6 +46,9 @@ class Project(models.Model):
 
     def get_stack(self):
         return self.stack.split(',')
+
+    def get_tags(self):
+        return self.extra_tags.split(',') if self.extra_tags else None
 
     def set_current(self, bool):
         self.current = bool

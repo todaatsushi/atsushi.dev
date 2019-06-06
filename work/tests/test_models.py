@@ -29,6 +29,13 @@ class ProjectTestCase(TestCase):
         expected_langs = ['JavaScript', 'C']
         self.assertEqual(expected_langs, self.project.get_languages())
 
+    def test_project_get_tags(self):
+        self.project.extra_tags = 'TDD,CBVs'
+        self.project.save()
+
+        expected_tags = ['TDD', 'CBVs']
+        self.assertEqual(expected_tags, self.project.get_tags())
+
     def test_project_get_stack(self):
         expected_stack = ['React', 'Node']
         self.assertEqual(expected_stack, self.project.get_stack())
