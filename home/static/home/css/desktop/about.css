@@ -1,6 +1,7 @@
 /* Each panel */
 .step {
     height: 75vh;
+    margin: 2rem 0 4rem 0;
 }
 
 /* Overall container */
@@ -49,4 +50,54 @@
     flex-direction: column;
 
     justify-content: center;
+}
+
+/* 3rd panel skills */
+#skills {
+    display: flex;
+    flex-flow: column;
+}
+
+.skills-text {
+    width: 100%;
+    margin: auto 0;
+}
+
+/* First line */
+#skills-title {
+    flex: 0 1 auto;
+    text-align: right;
+}
+
+/* Second line */
+
+#skills-sub {
+    flex: 0 1 auto;
+    text-align: left;
+}
+
+/* last line */
+#skills-last {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Final text */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#st-left {
+    justify-content: flex-start;
+}
+
+#st-mid {
+    justify-content: center;
+}
+
+#st-right {
+    justify-content: flex-end;
 }
