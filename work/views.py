@@ -18,15 +18,22 @@ class ProjectIndexView(ListView):
         context = super().get_context_data(**kwargs)
 
         LANGUAGES = unpack([
-            l.languages for l in Project.objects.all()
+            proj.languages for proj in Project.objects.filter(public=True)
         ])
 
         TECHNOLOGIES = unpack ([
-            t.stack for t in Project.objects.all()
+            proj.stack for proj in Project.objects.filter(public=True)
         ])
 
-        context['langs'] = LANGUAGES
-        context['techs'] = TECHNOLOGIES
+        TAGS = unpack([
+            proj.extra_tags for proj in Project.objects.filter(public=True)
+        ])
+
+        context['filters'] = {
+            'Languages': LANGUAGES,
+            'Technologies': TECHNOLOGIES,
+            'Other / Skills': TAGS,
+        }
         context['show_nav'] = True
         return context
 

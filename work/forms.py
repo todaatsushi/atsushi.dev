@@ -7,8 +7,8 @@ class CreateUpdateProject(forms.ModelForm):
     class Meta:
         model = Project
         fields = [
-            'name', 'description', 'link', 'repository', 'languages', 'stack', 'hosting',
-            'public', 'current',
+            'name', 'description', 'link', 'repository', 'languages', 'stack', 'extra_tags',
+            'hosting', 'public', 'current',
         ]
         widgets = {
             'name': forms.TextInput(),
@@ -21,6 +21,9 @@ class CreateUpdateProject(forms.ModelForm):
                 'rows': 2,
             }),
             'stack': forms.Textarea(attrs={
+                'rows': 2,
+            }),
+            'extra_tags': forms.Textarea(attrs={
                 'rows': 2,
             }),
             'hosting': forms.TextInput(),
