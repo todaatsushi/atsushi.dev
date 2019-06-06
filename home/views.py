@@ -12,6 +12,7 @@ from home.forms import ContactForm
 from home.models import Feedback, SongPick
 
 from work.models import Project
+from work.helper import get_current_or_dummy
 
 
 class ContactView(SuccessMessageMixin, FormView):
@@ -49,25 +50,15 @@ class ContactView(SuccessMessageMixin, FormView):
 
 
 def home(request):
-    try:
-        current = Project.objects.get(current=True)
-    except Model.DoesNotExist:
-        current = None
-
     context = {
         'projects': Project.objects.all(),
         'hide_nav': True,
-        'current': current,
+        'current': get_current_or_dummy(),
     }
     return render(request, 'home/home.html', context)
 
 
 def about(request):
-    try:
-        current = Project.objects.get(current=True)
-    except Model.DoesNotExist:
-        current = None
-
     song = SongPick.objects.get(
         id=randint(1, SongPick.objects.last().id)
     )
@@ -75,7 +66,7 @@ def about(request):
     context = {
         'projects': Project.objects.all(),
         'hide_nav': False,
-        'current': current,
+        'current': get_current_or_dummy(),
         'song': song,
     }
     return render(request, 'home/about.html', context)

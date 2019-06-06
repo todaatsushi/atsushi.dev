@@ -38,3 +38,11 @@ html {
     font-family: 'Overpass Mono';
     text-transform: lowercase;
 }
+
+/* Project current marker */
+#current {
+    background-color: #F45B69;
+    padding: 0.6rem;
+    margin-left: 1rem;
+    font-size: 0.75rem;
+}

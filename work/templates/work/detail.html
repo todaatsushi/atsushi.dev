@@ -12,7 +12,11 @@
 {% block main %}
     <article class="uk-article uk-grid-small" uk-grid>
         <div class="uk-width-1-2@s detail-summary">
-            <h3 class="mono">About {{ project.name }}</h3>
+            <h3 class="mono">About {{ project.name }}
+                {% if project.current %}
+                    <span id="current" class="uk-badge">Current</span>
+                {% endif %}
+            </h3>
             <ul uk-accordion>
                 <li class="uk-open">
                     <a class="uk-accordion-title" href="#">Technical Summary</a>
