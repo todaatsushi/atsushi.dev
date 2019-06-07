@@ -120,6 +120,15 @@ a.link-5:hover, a.link-5:active {
     text-decoration: none;
 }
 
+a.link-6:link, a.link-6:visited {
+    color: #53a2be;
+}
+
+a.link-6:hover, a.link-6:active {
+    color: #356879;
+    text-decoration: none;
+}
+
 /* Adapted from - https://codepen.io/bootstrapped/pen/yJqbPa */
 .underline {
     text-decoration: none; 

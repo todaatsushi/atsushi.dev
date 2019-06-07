@@ -43,3 +43,8 @@
 .score-parent {
     width: 100%;
 }
+
+/* Download CV Button */
+#dl-cv {
+    position: fixed;
+}
