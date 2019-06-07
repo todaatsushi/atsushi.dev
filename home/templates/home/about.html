@@ -1,8 +1,15 @@
 {% extends 'home/layout.html' %}
-{% load static %}
+{% load static extra_tags %}
 
 {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'home/css/desktop/about.css' %}">
+
+    <!-- For the Contact Form -->
+    <link rel="stylesheet" href="{% static 'home/css/desktop/contact.css' %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'home/js/contact.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -20,7 +27,7 @@
             </div>
             <div id="welcome-text" class="scrollspy">
                 <h2 class="serif">
-                    You can get in touch regarding all using the envelope button <br> in the icon nav, or contact in the top nav.
+                    You can get in touch regarding all using the envelope button in the icon nav, <br> <span class="reserved">contact</span> in the top nav, or the form at the bottom of the page.
                 </h2>
             </div>
         </section>
@@ -75,7 +82,7 @@
 
         <section class="step" id="skills" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
             <div class="skills-text" id="skills-title">
-                <h1 class="mono scrollspy">I've been <span class="misc3">developing</span> for <span class="comment2">~18 months</span></h1>
+                <h1 class="mono scrollspy">I've been <span class="misc3">developing</span> for <span class="comment2">~12 months</span></h1>
             </div>
             <div class="skills-text" id="skills-sub">
                 <h1 class="mono scrollspy">So I'm <span class="function">pretty good</span> at <span class="string">Django</span></h1>
@@ -90,13 +97,118 @@
                 </div>
                 <div class="skills-list scrollspy" id="st-mid">
                     <h2 class="mono">
-                        So soon, I'll be good at <span class="function">React</span> too!
+                        So soon, I'll be moving onto <span class="function">React</span>.
                     </h2>
                 </div>
                 <div class="skills-list scrollspy" id="st-right">
                     <h2 class="mono">
                         And I'm willing to <span class="misc5">keep learning</span>.
                     </h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="border" id="why" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
+            <h1 class="mono scrollspy">
+                I started coding when I became <span class="misc3">agoraphobic</span>.
+            </h1>
+            <h1 class="mono scrollspy">
+                It was another <span class="string">goal</span> to drive towards <span class="misc">recovery</span> with.
+            </h1>
+            <h1 class="mono scrollspy">
+                In that time, I've gained experience in many core developing components:
+            </h1>
+            <div class="uk-width-1-1 uk-child-width-1-2@s no-margin-left" uk-grid>
+                <ul class="uk-list uk-list-large why-list" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;">
+                    <li class="scrollspy underline2-1 string">Testing</li>
+                    <li class="scrollspy underline2-1 string">Databases</li>
+                    <li class="scrollspy underline2-1 string">The DOM</li>
+                </ul>
+                <ul class="uk-list uk-list-large why-list" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;">
+                    <li class="scrollspy underline4 comment2">Version Control</li>
+                    <li class="scrollspy underline4 comment2">Data Types</li>
+                    <li class="scrollspy underline4 comment2">HTTP & AJAX</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="no-margin-left" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" id="final">
+            <div class="uk-width-1-1" id="fin-title">
+                <h1 class="mono">Now, tell me about <span class="misc3">you</span>!</h1>
+            </div>
+            <div class="uk-width-1-1 uk-padding-medium uk-flex uk-flex-middle" uk-grid>
+                <div class="uk-width-1-2@s">
+                    <form method="post" action="{% url 'contact' %}" class="uk-margin-large uk-grid-small" uk-grid>
+                            {% csrf_token %}
+                            <legend class="uk-legend uk-margin-medium-bottom"> <span class="reserved">def</span> <span class="function">contact</span><span class="brackets">():</span></legend>
+                            <div class="uk-width-1-1">
+                                {{ form.non_field_errors }}
+                                
+                                {% for field in form %}
+                                    {{ field.errors }}
+                                {% endfor %}
+                            </div>
+                    
+                            {% for field in form %}
+                                {% if field.label == 'Score' %}
+                                    <div class="uk-width-1-6@s"></div>
+                                    <div class="uk-width-1-3@s">
+                                        <label for="{{ field.id_for_label }}" class="uk-form-label">{{ field.label|capfirst }}:</label>
+                                        <input class="uk-range" type="range" value="1" min="1" max="5" step="1" required id="id_score" name="score" onchange="adjustScore(value)">
+                                        <p class="uk-text-meta uk-text-center serif">{{ field.help_text }}</p>
+                                    </div>
+                                    <div class="uk-width-1-3@s">
+                                        {% for i in 5|loop_nums %}
+                                            <div class="score uk-flex uk-flex-column uk-flex-between uk-flex-middle" id="score-{{ i }}">
+                                                <div class="stars">
+                                                    {% for n in i|loop_nums %}
+                                                        <span uk-icon="star"></span>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="score-help">
+                                                    <p class="uk-text-meta uk-text-center serif">
+                                                        {% if i == 1 %}
+                                                            You would not consider me for a junior position.
+                                                        {% elif i == 2 %}
+                                                            You would consider me for a junior position, but I would need a lot of training.
+                                                        {% elif i == 3 %}
+                                                            You would consider me a decent candidate for a junior position.
+                                                        {% elif i == 4 %}
+                                                            You would consider me a strong candidate for a junior position.
+                                                        {% elif i == 5 %}
+                                                            You would consider me a stand out candidate for a junior position.
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="uk-width-1-6@s"></div>
+                                    
+                                {% elif field.label == 'Message' %}
+                                    <div class="uk-form-controls uk-width-1-1 uk-margin-small-bottom">
+                                        {{ field|add_class:'uk-textarea uk-form-blank serif message-field' }}
+                                    </div>
+                                {% else %}
+                                    <div class="uk-form-controls uk-width-1-2@s">
+                                        {{ field|add_class:'uk-input uk-form-blank serif message-field'}}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                    
+                            <div class="uk-width-1-3"></div>
+                            <div class="uk-width-1-3 uk-margin-small-top">
+                                <input type="submit" value="Send" class="uk-button uk-button-text uk-button-large uk-width-1-1 uk-margin-small-top uk-margin-medium-bottom">
+                            </div>
+                            <div class="uk-width-1-3"></div>
+                    </form>
+                </div>
+                <div class="uk-width-1-2@s" id="fin-text">
+                    <h1 class="mono">< Say <span class="misc4">hi</span></h1>
+                    <hr>
+                    <h1 class="mono">See my <a href="{% url 'all-projects' %}" class="link-2 underline2-1">work</a>!</h1>
+                    <hr>
+                    <h1 class="mono">Download my <a href="{% static 'home/pdf/Atsushi Toda CV.pdf' %}" class="link-5 underline3" download="Atsushi Toda CV.pdf">CV</a></h1>
                 </div>
             </div>
         </section>

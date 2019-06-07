@@ -178,6 +178,34 @@ a.link-5:hover, a.link-5:active {
      background: #2C5913;
   }
 
+  .underline2-1 {
+    text-decoration: none; 
+    position: relative; 
+  }   
+
+ .underline2-1:after {
+    position: absolute;
+    content: '';
+    height: 3px;
+    bottom: -7px; 
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: 10%;
+    background: #4fa322;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+ }
+
+ .underline2-1:hover:after {
+     width: 100%;
+     background: #2C5913;
+  }
+
  /* No offset */
 
  .underline3 {
@@ -204,7 +232,7 @@ a.link-5:hover, a.link-5:active {
  }
 
 .underline3:hover:after {
-    width: 90%;
+    width: 100%;
     background: #3a6f84;
  }
 
