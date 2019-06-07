@@ -140,6 +140,11 @@
     padding: 0 1rem;
 }
 
+#quick-left > h3 {
+    word-wrap: break-word;
+    text-align: justify
+}
+
 #quick-right {
     display: flex;
     flex-direction: column;
