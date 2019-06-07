@@ -68,6 +68,7 @@ def about(request):
         'hide_nav': False,
         'current': get_current_or_dummy(),
         'song': song,
+        'form': ContactForm,
     }
     return render(request, 'home/about.html', context)
 

@@ -1,6 +1,7 @@
 /* Each panel */
 .step {
     height: 75vh;
+    margin: 2rem 0 4rem 0;
 }
 
 /* Overall container */
@@ -49,4 +50,116 @@
     flex-direction: column;
 
     justify-content: center;
+}
+
+/* 3rd panel skills */
+#skills {
+    display: flex;
+    flex-flow: column;
+}
+
+.skills-text {
+    width: 100%;
+    margin: auto 0;
+}
+
+/* First line */
+#skills-title {
+    flex: 0 1 auto;
+    text-align: right;
+}
+
+/* Second line */
+
+#skills-sub {
+    flex: 0 1 auto;
+    text-align: left;
+}
+
+/* last line */
+#skills-last {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Final text */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#st-left {
+    justify-content: flex-start;
+}
+
+#st-mid {
+    justify-content: center;
+}
+
+#st-right {
+    justify-content: flex-end;
+}
+
+/* fourth step why */
+#why {
+    padding: 2em;
+}
+
+#why > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#why > h1 {
+    text-align: center;
+}
+
+.why-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 2em auto;
+}
+
+.why-list > li {
+    font-size: 3em;
+}
+
+/* Last contact panel */
+#final {
+    margin-bottom: 10vh;
+    margin-top: 3rem;
+}
+
+#final > div {
+    margin: 0.75rem 0;
+}
+
+#fin-title {
+    display: flex;
+    justify-content: center;
+}
+
+#fin-title > h1 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+}
+
+#fin-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 75%;
+    min-height: 4in;
+    padding: 2rem;
+}
+
+#fin-text > hr {
+    width: 100%;
 }
