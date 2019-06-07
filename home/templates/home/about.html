@@ -22,12 +22,12 @@
         <section class="step" id="splash" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
             <div id="welcome-title" class="scrollspy">
                 <h1 class="mono">
-                    Lorem ipsum, dolor sit amet <br> consectetur adipisicing.
+                    <span class="reserved">def</span> <span class="function">about_atsushi</span><span class="brackets">()</span>
                 </h1>
             </div>
             <div id="welcome-text" class="scrollspy">
                 <h2 class="serif">
-                    You can get in touch regarding all using the envelope button in the icon nav, <br> <span class="reserved">contact</span> in the top nav, or the form at the bottom of the page.
+                    You can get in touch regarding all using the envelope button in the icon nav, <span class="reserved">contact</span> in the top nav, or the form at the bottom of the page.
                 </h2>
             </div>
         </section>
@@ -88,7 +88,6 @@
                 <h1 class="mono scrollspy">So I'm <span class="function">pretty good</span> at <span class="string">Django</span></h1>
             </div>
 
-            <hr>
             <div class="skills-text uk-child-width-1-3@s" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 700;" id="skills-last">
                 <div class="skills-list scrollspy" id="st-left">
                     <h2 class="mono">
@@ -108,7 +107,7 @@
             </div>
         </section>
 
-        <section class="border" id="why" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
+        <section id="why" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
             <h1 class="mono scrollspy">
                 I started coding when I became <span class="misc3">agoraphobic</span>.
             </h1>
@@ -116,7 +115,7 @@
                 It was another <span class="string">goal</span> to drive towards <span class="misc">recovery</span> with.
             </h1>
             <h1 class="mono scrollspy">
-                In that time, I've gained experience in many core developing components:
+                In that time, I've <span class="name">gained experience</span> in many <span class="function">core developing components</span> including:
             </h1>
             <div class="uk-width-1-1 uk-child-width-1-2@s no-margin-left" uk-grid>
                 <ul class="uk-list uk-list-large why-list" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;">
@@ -132,11 +131,32 @@
             </div>
         </section>
 
+        <section uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" class="" id="offer">
+            <h1 class="mono scrollspy uk-text-center">I've gotten good at <span class="reserved">developing web apps</span>.</h1>
+            <h1 class="mono scrollspy">My favourite project is <span class="misc5">Champ</span>.</h1>
+            <h1 class="mono scrollspy">
+                It's a workout generator - <span class="misc3">my first web app</span> I made from ground up at the end of CS50.
+            </h1>
+
+            <h1 class="mono scrollspy uk-text-right uk-margin-large-top">
+                I also think <span class="comment2">this very site</span> is good.
+            </h1>
+            <h1 class="mono scrollspy uk-text-right">
+                It uses rigourous <span class="comment">unit testing</span> while being my best <span class="misc">responsive design</span>.
+            </h1>
+
+            <h1 class="mono scrollspy uk-text-center uk-margin-large-top">You can see them and <span class="misc2">all my projects</span> in more detail on my <span class="function">work page</span>. </h1>
+
+            <h1 class="mono scrollspy uk-margin-large-top uk-margin-large-bottom uk-text-center">
+                I'd <span class="misc4">love</span> nothing more than a chance to <span class="string">work together</span>!
+            </h1>
+        </section>
+
         <section class="no-margin-left" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" id="final">
-            <div class="uk-width-1-1" id="fin-title">
-                <h1 class="mono">Now, tell me about <span class="misc3">you</span>!</h1>
+            <div class="uk-width-1-1 scrollspy" id="fin-title">
+                <h1 class="mono">Ok, <span class="misc3">your turn</span>.</h1>
             </div>
-            <div class="uk-width-1-1 uk-padding-medium uk-flex uk-flex-middle" uk-grid>
+            <div class="uk-width-1-1 uk-padding-medium uk-flex uk-flex-middle scrollspy" uk-grid>
                 <div class="uk-width-1-2@s">
                     <form method="post" action="{% url 'contact' %}" class="uk-margin-large uk-grid-small" uk-grid>
                             {% csrf_token %}

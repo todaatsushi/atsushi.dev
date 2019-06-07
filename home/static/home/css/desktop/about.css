@@ -12,13 +12,15 @@
 /* First panel - welcome splash */
 #splash {
     position: relative;
-    height: 90vh;
+    height: 80vh;
 }
 
 #welcome-title {
     position: absolute;
     right: 10px;
     top: 40px;
+
+    width: 80%;
 }
 
 #welcome-title > h1 {
@@ -32,11 +34,18 @@
     position: absolute;
     left: 30px;
     bottom: 60px;
+    width: 60%;
+    min-width: 7in;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
 }
 
 #welcome-text > h2 {
     font-size: 1.5rem;
     letter-spacing: 1px;
+    margin: auto;
+    padding: 0 2rem;
 }
 
 /* Second panel - basic intro */
@@ -56,6 +65,8 @@
 #skills {
     display: flex;
     flex-flow: column;
+
+    padding: 2em;
 }
 
 .skills-text {
@@ -74,6 +85,8 @@
 #skills-sub {
     flex: 0 1 auto;
     text-align: left;
+
+    margin-bottom: 4em;
 }
 
 /* last line */
@@ -129,10 +142,16 @@
     font-size: 3em;
 }
 
+/* Offer panel */
+#offer {
+    padding: 2em;
+    margin: 5em 0;
+}
+
 /* Last contact panel */
 #final {
     margin-bottom: 10vh;
-    margin-top: 3rem;
+    margin-top: 3em;
 }
 
 #final > div {
