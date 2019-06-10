@@ -1,8 +1,8 @@
 /* Mono (code font) */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono');
 
 /* Serif font */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 * {
     font-family: "Overpass Mono", monospace;

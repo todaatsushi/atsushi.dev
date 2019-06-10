@@ -11,7 +11,9 @@
 {% block extra_main %}
     <form method="post" class="uk-margin-large uk-grid-small" uk-grid>
         {% csrf_token %}
-        <legend class="uk-legend">New Project</legend>
+        <legend class="uk-legend">
+            <span class="reserved">def</span> <span class="function">create_project</span><span class="brackets">()</span>
+        </legend>
         <div class="uk-width-1-1">
             {{ form.non_field_errors }}
             
@@ -38,7 +40,7 @@
         {% endfor %}
 
         <div class="uk-form-controls uk-width-1-1@s">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="uk-button uk-button-secondary">
         </div>
     </form>
 {% endblock %}

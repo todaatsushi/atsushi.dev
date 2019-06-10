@@ -15,6 +15,9 @@ class ProjectIndexView(ListView):
     context_object_name = 'all_projects'
 
     def get_context_data(self, **kwargs):
+        """
+        Generate all possible slicers (langs, techs and misc) to create class tags for filtering.
+        """
         context = super().get_context_data(**kwargs)
 
         LANGUAGES = unpack([
@@ -55,6 +58,9 @@ class ProjectDetailView(DetailView):
         return context
 
     def get_object(self, queryset=None):
+        """
+        Show project unless the project is not public.
+        """
         project = super().get_object(queryset=queryset)
 
         if self.request.user.is_authenticated:
@@ -143,8 +149,7 @@ def project_update(request, slug):
     
     context = {
         'project': project,
-        'project_form': project_form,
-        'specs_form': specs_form,
+        'forms': [project_form, specs_form]
     }
 
     return render(request, 'work/update.html', context)

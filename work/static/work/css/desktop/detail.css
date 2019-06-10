@@ -22,6 +22,12 @@
     width: 66%;
 }
 
+/* Bottom Panel - All info */
+#project-detail {
+    min-height: 4in;
+    padding-bottom: 3rem;
+}
+
 /* Picture with title and buttons */
 .detail-header {
     background-size: cover;

@@ -12,6 +12,8 @@
 {% block main %}
     <form method="post">
         {% csrf_token %}
-        <input type="submit" name="Confirm Delete">
+        <input type="submit" value="Confirm Delete" class="uk-button uk-button-secondary uk-button-large">
+        <a class="uk-button uk-button-secondary uk-button-large" href="{% url 'home' %}">Home</a>
+        <a class="uk-button uk-button-secondary uk-button-large" href="{% url 'all-projects' %}">Projects</a>
     </form>
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'work/form_template.html' %}
-{% load static %}
+{% load static extra_tags %}
 
 {% block extra_style %}
 {% endblock %}
@@ -9,17 +9,44 @@
 {% endblock %}
 
 {% block extra_main %}
-    Update Project
-
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class="uk-margin-large uk-grid-small" uk-grid>
         {% csrf_token %}
+        <legend class="uk-legend">
+            <span class="reserved">def</span> <span class="function">update_project</span><span class="brackets">()</span>
+        </legend>
+        <div class="uk-width-1-1">
+            {{ form.non_field_errors }}
+            
+            {% for field in form %}
+                {{ field.errors }}
+            {% endfor %}
+        </div>
 
-        <h1>Details</h1>
-        {{ project_form.as_p }}
+        {% for form in forms %}
+            {% for field in form %}
+                <div class="uk-form-controls uk-width-1-2@s">
+                    {% with input_type=field.field.widget.input_type %}
+                        {% if input_type == "text" or input_type == 'url' %}
+                            {{ field.label }}
+                            {{ field|add_class:"uk-input" }}
+                        {% elif input_type == "checkbox" %}
+                            {{ field.label }}
+                            {{ field|add_class:"uk-checkbox" }}
+                        {% elif input_type == "file" %}
+                            {{ field.label }}
+                            {{ field|add_class:"uk-margin-small" }}
+                        {% else %}
+                            {{ field.label }}
+                            {{ field|add_class:"uk-textarea" }}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            {% endfor %}
+        {% endfor%}
 
-        <h1>Specs</h1>
-        {{ specs_form.as_p }}
-        <input type="submit" value="Submit">
+        <div class="uk-form-controls uk-width-1-1 uk-margin-top-small">
+            <input type="submit" value="Update" class="uk-button uk-button-secondary">
+        </div>
     </form>
 {% endblock %}
 

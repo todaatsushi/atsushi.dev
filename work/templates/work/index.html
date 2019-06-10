@@ -17,7 +17,7 @@
 
     <section id="intro" class="step no-margin-left">
         <div class="uk-padding-large" id="intro-title">
-            <h1 class="mono underline3">
+            <h1 class="mono">
                 <span class="reserved">def</span> <span class="function">all_projects</span><span class="brackets">()</span>
             </h1>
         </div>
@@ -25,7 +25,6 @@
             <p>
                 I'm really proud of the work I've done. See a whole range of tech and processes in action in the form of web applications below! Each card links to a more detailed summary of the app, with links to the code and the app itself. 
             </p>
-
             <p>
                 There's also a filter control panel in the bottom left in case you know what you want to see. If not, I recommend Champ to start as my most complete app.
             </p>
@@ -57,7 +56,7 @@
                                                     <span id="current" class="uk-badge">Current</span>
                                                 {% endif %}
                                             </h3>
-                                            <p class="serif">{{ p.description|linebreaks }}</p>
+                                            {{ p.description|linebreaks|add_class:"serif" }}
                                         </div>
                                     </div>
                                 </div>

@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block main %}
+    {# top of the page with initial tech summary #}
     <section id="detail-intro" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
         <div id="detail-name">
             <h1 class="mono ">
@@ -26,9 +27,10 @@
         </article>
     </section>
 
-    <article class="uk-article uk-grid-small" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
+    {# More details and links inc. off canvas. #}
+    <article id="project-detail" class="uk-article uk-grid-small" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
         <div class="uk-width-1-2@s detail-summary scrollspy">
-            <h3 class="mono">About {{ project.name }}
+            <h3 class="serif">About {{ project.name }}
                 {% if project.current %}
                     <span id="current" class="uk-badge">Current</span>
                 {% endif %}
