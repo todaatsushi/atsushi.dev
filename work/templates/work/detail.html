@@ -10,6 +10,22 @@
 {% endblock %}
 
 {% block main %}
+    <section class="" id="detail-intro">
+        <div id="detail-name">
+            <h1 class="mono">
+                <span class="function">about</span><span class="brackets">(</span>
+                <br>
+                <span class="indent string">"{{ project.name }}"</span>
+                <br>
+                <span class="brackets">)</span>
+            </h1>
+        </div>
+        <article id="detail-text" class="uk-padding-large">
+            <h3 class="mono">Technical Summary</h3>
+            {{ project.projectspecs.technical_summary|linebreaks }}
+        </article>
+    </section>
+
     <article class="uk-article uk-grid-small" uk-grid>
         <div class="uk-width-1-2@s detail-summary">
             <h3 class="mono">About {{ project.name }}
@@ -19,14 +35,6 @@
             </h3>
             <ul uk-accordion>
                 <li class="uk-open">
-                    <a class="uk-accordion-title" href="#">Technical Summary</a>
-                    <div class="uk-accordion-content">
-                        <span class="serif">
-                            {{ project.projectspecs.technical_summary|linebreaks }}
-                        </span>
-                    </div>
-                </li>
-                <li>
                     <a class="uk-accordion-title" href="#">Best Features</a>
                     <div class="uk-accordion-content">
                         <span class="serif">
@@ -60,6 +68,7 @@
                 <div class="detail-buttons">
                     <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank">App</a>
                     <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Specs</button>
+                    <a class="uk-button uk-button-secondary uk-margin-small-right" target="__blank" href="{{ project.repository }}">Code</a>
                 </div>
             </div>
             

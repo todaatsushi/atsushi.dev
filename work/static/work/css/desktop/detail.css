@@ -1,3 +1,27 @@
+/* Intro panel */
+#detail-intro {
+    min-height: 2in;
+    height: 25vh;
+
+    margin: 2rem 0;
+
+    display: flex;
+}
+
+#detail-name {
+    border-right: 2px solid #000;
+    width: 33%;
+
+    padding-top: 0.5rem;
+}
+
+#detail-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 66%;
+}
+
 /* Picture with title and buttons */
 .detail-header {
     background-size: cover;

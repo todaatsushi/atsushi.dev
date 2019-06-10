@@ -15,13 +15,32 @@
 
 {% block main %}
 
+    <section id="intro" class="step no-margin-left">
+        <div class="uk-padding-large" id="intro-title">
+            <h1 class="mono underline3">
+                <span class="reserved">def</span> <span class="function">all_projects</span><span class="brackets">()</span>
+            </h1>
+        </div>
+        <article id="intro-text" class="uk-padding-large">
+            <p>
+                I'm really proud of the work I've done. See a whole range of tech and processes in action in the form of web applications below! Each card links to a more detailed summary of the app, with links to the code and the app itself. 
+            </p>
+
+            <p>
+                There's also a filter control panel in the bottom left in case you know what you want to see. If not, I recommend Champ to start as my most complete app.
+            </p>
+        </article>
+    </section>
+
+    <hr class="uk-divider-icon uk-margin-large-bottom">
+
     {% if user.is_authenticated %}
         <h2 id="new-proj"><a href="{% url 'new-project' %}" uk-icon="icon: plus"></a></h2>
     {% endif %}
 
-    <div id="proj-all" class="uk-container" uk-filter="target: .js-filter">
-        <div class="projects">
-            <ul class="js-filter uk-text-center uk-grid-collapse uk-child-width-1-2@s" uk-grid uk-height-match="target: > li > div > .uk-card">
+    <section id="proj-all" class="uk-container step" uk-filter="target: .js-filter">
+        <section class="projects">
+            <ul class="js-filter uk-text-center uk-grid-collapse uk-child-width-1-2@m" uk-grid uk-height-match="target: > li > div > .uk-card">
                 {% for p in all_projects %}
                     <li class="tag-all {% for l in p.get_languages %}tag-{{ l|lower }} {% endfor %} {% for t in p.get_stack %}{% with lower_t=t|lower %} tag-{{ lower_t|replace_space }} {% endwith %}{% endfor %} {% for t in p.get_tags %}{% with lower_t=t|lower %} tag-{{ lower_t|replace_space }} {% endwith %}{% endfor %}">
 
@@ -47,9 +66,9 @@
                     </li>
                 {% endfor %}
             </ul>
-        </div>
+        </section>
 
-        <div id="controls">
+        <section id="controls">
             <ul class="uk-nav-default uk-nav-parent-icon uk-margin-small-bottom" uk-nav id="control-options">
                 <li uk-filter-control=".tag-all"><a href="#" class="serif">View All</a></li>
                 {% for key, value in filters.items %}
@@ -66,7 +85,7 @@
                 {% endfor %}
             </ul>
             <a id="toggle-filter" class="uk-margin-small-top serif">Filter <span uk-icon="icon: cog"></span></a>
-        </div>
-    </div>
+        </section>
+    </section>
 
 {% endblock %}

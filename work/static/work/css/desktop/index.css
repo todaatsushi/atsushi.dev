@@ -5,6 +5,28 @@
     right: 60px;
 }
 
+/* Top intro div */
+#intro {
+    min-height: 2in;
+    height: 35vh;
+
+    margin: 2rem 0;
+
+    display: flex;
+}
+
+#intro-title {
+    border-right: 2px solid #000;
+    width: 33%;
+}
+
+#intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 66%;
+}
+
 /* Filter controls */
 #controls {
     position: fixed;
