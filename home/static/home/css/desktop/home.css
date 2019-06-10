@@ -145,7 +145,8 @@
 
 #quick-left > h3 {
     word-wrap: break-word;
-    text-align: justify
+    text-align: justify;
+    font-size: calc(1rem + 0.75vw);
 }
 
 #quick-right {
