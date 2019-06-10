@@ -21,7 +21,8 @@
                 {{ field.errors }}
             {% endfor %}
         </div>
-
+        
+        {# Add appropriate uikit classes to input fields #}
         {% for field in form %}
             <div class="uk-form-controls uk-width-1-2@s">
                 {% with input_type=field.field.widget.input_type %}

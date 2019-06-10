@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import (DetailView, ListView, UpdateView, DeleteView, CreateView)
+from django.views.generic import (DetailView, ListView, DeleteView, CreateView)
 from django.urls import reverse
 
 from work.models import Project, ProjectSpecs
@@ -108,6 +108,10 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
 
 
 def project_update(request, slug):
+    """
+    Used in place of CBV in order to accomodate 2 different forms.
+    """
+    # Make sure project exists
     project = get_object_or_404(Project, url_slug=slug)
 
     # Form handling
@@ -153,33 +157,3 @@ def project_update(request, slug):
     }
 
     return render(request, 'work/update.html', context)
-
-
-
-# class ProjectUpdateView(LoginRequiredMixin, UpdateView):
-#     model = Project
-#     template_name = 'work/update.html'
-#     form_class = CreateUpdateProject
-#     slug_field = 'url_slug'
-#     login_url = '/'
-#     redirect_field_name = 'redirect_to'
-
-#     def form_valid(self, form):
-#         import re
-
-#         # Make valid URL_SLUG
-#         slug = form.instance.name.lower()
-#         slug = slug.replace(" ", "-")
-#         slug = re.sub(r'[^a-zA-Z0-9-]', '', slug)
-
-#         form.instance.url_slug = slug
-
-#         # Ensure there is only one current project
-#         if form.instance.current:
-#             for p in Project.objects.all():
-#                 p.current = False
-#                 p.save()
-#         return super().form_valid(form)
-
-#     def get_success_url(self):
-#         return reverse('view-project', kwargs={'slug': self.object.url_slug})

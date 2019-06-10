@@ -49,11 +49,6 @@ def delete_unused_image_files(sender, instance, **kwargs):
 
     not_needed = [path for path in all_imgs if path not in in_use]
     
-    # print("In use: ", in_use, '\n')
-    # print('dirs: ', header_dir, prev_dir, '\n')
-    # print('all current: ', all_imgs, '\n')
-    # print('not needed: ', not_needed)
-    
     for path in not_needed:
         if path:
             default_storage.delete(path)
