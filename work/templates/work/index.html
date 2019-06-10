@@ -22,10 +22,10 @@
             </h1>
         </div>
         <article id="intro-text" class="uk-padding-large">
-            <p>
+            <p class="card-text">
                 I'm really proud of the work I've done. See a whole range of tech and processes in action in the form of web applications below! Each card links to a more detailed summary of the app, with links to the code and the app itself. 
             </p>
-            <p>
+            <p class="card-text">
                 There's also a filter control panel in the bottom left in case you know what you want to see. If not, I recommend Champ to start as my most complete app.
             </p>
         </article>
@@ -56,7 +56,7 @@
                                                     <span id="current" class="uk-badge">Current</span>
                                                 {% endif %}
                                             </h3>
-                                            {{ p.description|linebreaks|add_class:"serif" }}
+                                            {{ p.description|linebreaks|add_class:"serif card-text" }}
                                         </div>
                                     </div>
                                 </div>
