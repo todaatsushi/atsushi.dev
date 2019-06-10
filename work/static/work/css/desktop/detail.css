@@ -12,7 +12,7 @@
     border-right: 2px solid #000;
     width: 33%;
 
-    padding-top: 0.5rem;
+    padding: 1rem;
 }
 
 #detail-text {
@@ -20,6 +20,9 @@
     flex-direction: column;
     justify-content: center;
     width: 66%;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* Bottom Panel - All info */

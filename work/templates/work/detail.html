@@ -13,10 +13,10 @@
     {# top of the page with initial tech summary #}
     <section id="detail-intro" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
         <div id="detail-name">
-            <h1 class="mono ">
+            <h1 class="mono">
                 <span class="function">about</span><span class="brackets">(</span>
                 <br>
-                <span class="indent string">"{{ project.name }}"</span>
+                <span class="indent comment2">"{{ project.name }}"</span>
                 <br>
                 <span class="brackets">)</span>
             </h1>
@@ -26,6 +26,8 @@
             {{ project.projectspecs.technical_summary|linebreaks }}
         </article>
     </section>
+
+    <hr class="uk-divider-icon">
 
     {# More details and links inc. off canvas. #}
     <article id="project-detail" class="uk-article uk-grid-small" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
