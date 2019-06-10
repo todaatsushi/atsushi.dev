@@ -6,5 +6,5 @@ urlpatterns = [
     path('', v.home, name='home'),
     path('contact/', v.ContactView.as_view(), name='contact'),
     path('about/', v.about, name='about'),
-    path('test/', v.test, name='test'),
+    # path('test/', v.test, name='test'),
 ]
