@@ -10,9 +10,9 @@
 {% endblock %}
 
 {% block main %}
-    <section class="" id="detail-intro">
+    <section id="detail-intro" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
         <div id="detail-name">
-            <h1 class="mono">
+            <h1 class="mono ">
                 <span class="function">about</span><span class="brackets">(</span>
                 <br>
                 <span class="indent string">"{{ project.name }}"</span>
@@ -20,14 +20,14 @@
                 <span class="brackets">)</span>
             </h1>
         </div>
-        <article id="detail-text" class="uk-padding-large">
+        <article id="detail-text" class="uk-padding-large scrollspy">
             <h3 class="mono">Technical Summary</h3>
             {{ project.projectspecs.technical_summary|linebreaks }}
         </article>
     </section>
 
-    <article class="uk-article uk-grid-small" uk-grid>
-        <div class="uk-width-1-2@s detail-summary">
+    <article class="uk-article uk-grid-small" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
+        <div class="uk-width-1-2@s detail-summary scrollspy">
             <h3 class="mono">About {{ project.name }}
                 {% if project.current %}
                     <span id="current" class="uk-badge">Current</span>
@@ -60,7 +60,7 @@
                 </li>
             </ul>
         </div>
-        <div class="detail-header uk-height-large uk-width-1-2@s overlay-dark rounded"
+        <div class="detail-header uk-height-large uk-width-1-2@s overlay-dark rounded scrollspy"
             data-src="{{ project.projectspecs.header.url }}"
             uk-img>
             <div class="detail-info front">
