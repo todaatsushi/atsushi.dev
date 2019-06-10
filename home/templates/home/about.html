@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block javascript %}
+    {# For the dynamic star help text in the form #}
     <script src="{% static 'home/js/contact.js' %}"></script>
 {% endblock %}
 
@@ -17,8 +18,9 @@
 {% endblock %}
 
 {% block main %}
-
     <section id="all-about">
+
+        {# initial splash #}
         <section class="step" id="splash" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
             <div id="welcome-title" class="scrollspy">
                 <h1 class="mono">
@@ -31,7 +33,8 @@
                 </h2>
             </div>
         </section>
-
+        
+        {# At a glance info #}
         <section class="step no-margin-left" uk-grid>
 
             <div class="uk-width-1-4@s panel-title" id="glance-left" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;">
@@ -80,6 +83,7 @@
 
         </section>
 
+        {# "Chapter" steps here on out #}
         <section class="step" id="skills" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
             <div class="skills-text" id="skills-title">
                 <h1 class="mono scrollspy">I've been <span class="misc3">developing</span> for <span class="comment2">~12 months</span></h1>

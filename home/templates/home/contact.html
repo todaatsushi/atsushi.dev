@@ -28,7 +28,9 @@
 
     <form method="post" class="uk-margin-large uk-grid-small" uk-grid>
         {% csrf_token %}
-        <legend class="uk-legend uk-margin-medium-bottom"> <span class="reserved">def</span> <span class="function">contact</span><span class="brackets">():</span></legend>
+        <legend class="uk-legend uk-margin-medium-bottom"> 
+            <span class="reserved">def</span> <span class="function">contact</span><span class="brackets">():</span>
+        </legend>
         <div class="uk-width-1-1">
             {{ form.non_field_errors }}
             
@@ -36,7 +38,8 @@
                 {{ field.errors }}
             {% endfor %}
         </div>
-
+        
+        {# Name and email fields are formatted differently to the message and score fields #}
         {% for field in form %}
             {% if field.label == 'Score' %}
                 <div class="uk-width-1-6@s"></div>
@@ -46,6 +49,8 @@
                     <p class="uk-text-meta uk-text-center serif">{{ field.help_text }}</p>
                 </div>
                 <div class="uk-width-1-3@s">
+                    {# Each score indicates a level of satisfaction and needs different help texts and stars #}
+                    
                     {% for i in 5|loop_nums %}
                         <div class="score uk-flex uk-flex-column uk-flex-between uk-flex-middle" id="score-{{ i }}">
                             <div class="stars">

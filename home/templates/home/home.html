@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block main %}
+    {# Initial page - only logo and a few words - nav on the bottom #}
     <section id="splash" class="uk-container">
         <div class="center-screen">
             <h1 class="" id="title">
@@ -29,6 +30,7 @@
         </div>
     </section>
 
+    {# Sticky nav #}
     <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
         <div class="uk-navbar-center">
             <ul class="uk-navbar-nav">
@@ -41,6 +43,7 @@
         </div>
     </nav>
 
+    {# Quick first look panel #}
     <section class="step uk-container@s uk-padding-large-top" id="hello-world" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 100;">
         <div class="uk-width-1-4@s scrollspy" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 200;" id="quick-bar">
             <h1 class="mono uk-margin-medium-top scrollspy underline2">
@@ -76,6 +79,7 @@
         </div>
     </section>
 
+    {# Next options panel #}
     <article id="sitemap" class="uk-container@s step">
         <article id="home-start" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" class="uk-padding-large">
             <h1 class="mono scrollspy help-message">Now that we're <span class="misc3">acquainted</span>...</h1>
