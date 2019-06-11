@@ -31,17 +31,6 @@
     </section>
 
     {# Sticky nav #}
-    <!-- <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
-        <div class="uk-navbar-center">
-            <ul class="uk-navbar-nav">
-                <li><a href="{% url 'home' %}" class="link-1 mono nav-links">Home</a></li>
-                <li><a href="{% url 'contact' %}" class="link-4 mono nav-links">Contact</a></li>
-                <li><a href="{% url 'all-projects' %}" class="link-2 mono nav-links">Work</a></li>
-                <li><a href="{% url 'about' %}" class="link-3 mono nav-links">About</a></li>
-                <li><a href="{% static 'home/pdf/Atsushi Toda CV.pdf' %}" download="Atsushi Toda CV.pdf" class="link-6">cv</a></li>
-            </ul>
-        </div>
-    </nav> -->
     <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
         <a href="{% url 'home' %}" class="link-1 mono nav-links">Home</a>
         <a href="{% url 'contact' %}" class="link-4 mono nav-links">Contact</a>
@@ -93,14 +82,15 @@
             <h2 class="mono scrollspy help-message">Any of these <span class="misc">sound good</span>?</h2>
             <div id="welcome-options" class="uk-child-width-1-3@s uk-padding-small"
             uk-grid 
-            uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" uk-height-match="target: .uk-card">
-                <div class="uk-card uk-card-hover uk-width-1-3@m scrollspy">
+            uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" uk-height-match="target: .uk-card-body">
+                <article class="uk-card uk-card-hover uk-width-1-3@m scrollspy">
                     <div class="uk-card-header">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom mono brackets underline3">More <span class="function">about me</span></h3>
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <article class="uk-card-body card-scroll">
                         <p class="serif brackets">
@@ -111,17 +101,19 @@
                         </p>
                     </article>
                     <div class="uk-card-footer">
+                        <hr>
                         <a href="{% url 'about' %}" class="uk-button uk-button-text link-5">About</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="uk-card uk-card-hover uk-width-1-3@m scrollspy">
+                <article class="uk-card uk-card-hover uk-width-1-3@m scrollspy">
                     <div class="uk-card-header">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom mono misc5 underline4">Projects / <span class="misc">Work</span></h3>
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <article class="uk-card-body card-scroll">
                         <p class="serif comment2">
@@ -132,9 +124,10 @@
                         </p>
                     </article>
                     <div class="uk-card-footer">
+                        <hr>
                         <a href="{% url 'all-projects' %}" class="uk-button uk-button-text link-3">See Projects</a>
                     </div>
-                </div>
+                </article>
 
                 <article class="uk-card uk-card-hover uk-width-1-3@m scrollspy">
                     <div class="uk-card-header">
@@ -143,6 +136,7 @@
                                 <h3 class="uk-card-title uk-margin-remove-bottom mono misc3 underline5">Getting in touch</h3>
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <article class="uk-card-body card-scroll">
                         <p class="serif misc4">
@@ -150,6 +144,7 @@
                         </p>
                     </article>
                     <div class="uk-card-footer">
+                        <hr>
                         <a href="{% url 'contact' %}" class="uk-button uk-button-text link-4">Contact</a>
                     </div>
                 </article>

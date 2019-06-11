@@ -23,7 +23,7 @@
 
     /* Initial page */
     #splash {
-        height: 85vh;
+        height: 90vh;
     }
 
     #quick-links {
@@ -46,7 +46,7 @@
     }
 
     /* Adjust card positioning */
-    #welcome-options > div.uk-card, #welcome-options > article.uk-card {
+    #welcome-options > article.uk-card {
         padding: 0;
     }
 }
