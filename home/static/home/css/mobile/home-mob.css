@@ -1,9 +1,52 @@
 @media (max-width: 575px) {
+    /* Font sizing */
     #title {
         font-size: calc(1rem + 0.75vw);
     }
 
     .uk-breadcrumb li {
         font-size: 0.7rem;
+    }
+
+    /* Center Navbar */
+    #sticky-nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #sticky-nav > a {
+        font-size: calc(0.5rem + 0.5vw);
+        letter-spacing: 3px;
+        text-transform: lowercase;
+    }
+    
+
+    /* Initial page */
+    #splash {
+        height: 85vh;
+    }
+
+    #quick-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Adjust height for rendering */
+    .step {
+        height: auto;
+    }
+
+    #sitemap {
+        justify-content: flex-start;
+    }
+
+    .help-message {
+        padding: 0;
+        margin: 20px;
+    }
+
+    /* Adjust card positioning */
+    #welcome-options > div.uk-card, #welcome-options > article.uk-card {
+        padding: 0;
     }
 }

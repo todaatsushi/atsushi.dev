@@ -31,7 +31,7 @@
     </section>
 
     {# Sticky nav #}
-    <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
+    <!-- <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
         <div class="uk-navbar-center">
             <ul class="uk-navbar-nav">
                 <li><a href="{% url 'home' %}" class="link-1 mono nav-links">Home</a></li>
@@ -41,6 +41,13 @@
                 <li><a href="{% static 'home/pdf/Atsushi Toda CV.pdf' %}" download="Atsushi Toda CV.pdf" class="link-6">cv</a></li>
             </ul>
         </div>
+    </nav> -->
+    <nav id="sticky-nav" class="uk-navbar uk-navbar-container" uk-navbar uk-sticky>
+        <a href="{% url 'home' %}" class="link-1 mono nav-links">Home</a>
+        <a href="{% url 'contact' %}" class="link-4 mono nav-links">Contact</a>
+        <a href="{% url 'all-projects' %}" class="link-2 mono nav-links">Work</a>
+        <a href="{% url 'about' %}" class="link-3 mono nav-links">About</a>
+        <a href="{% static 'home/pdf/Atsushi Toda CV.pdf' %}" download="Atsushi Toda CV.pdf" class="link-6">cv</a>
     </nav>
 
     {# Quick first look panel #}
@@ -95,7 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <article class="uk-card-body card-scroll uk-padding-small">
+                    <article class="uk-card-body card-scroll">
                         <p class="serif brackets">
                             Here, you can read more about me and get a gauge of what I'm like.
                         </p>
@@ -146,7 +153,6 @@
                         <a href="{% url 'contact' %}" class="uk-button uk-button-text link-4">Contact</a>
                     </div>
                 </article>
-            </article>
-        </div>
+        </article>
     </article>
 {% endblock %}
