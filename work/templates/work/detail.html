@@ -3,6 +3,7 @@
 
 {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'work/css/desktop/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'work/css/mobile/detail.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -32,12 +33,12 @@
     {# More details and links inc. off canvas. #}
     <article id="project-detail" class="uk-article uk-grid-small" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;">
         <div class="uk-width-1-2@s detail-summary scrollspy">
-            <h3 class="serif">About {{ project.name }}
+            <h3 class="serif scrollspy">About {{ project.name }}
                 {% if project.current %}
                     <span id="current" class="uk-badge">Current</span>
                 {% endif %}
             </h3>
-            <ul uk-accordion>
+            <ul uk-accordion class="scrollspy">
                 <li class="uk-open">
                     <a class="uk-accordion-title" href="#">Best Features</a>
                     <div class="uk-accordion-content">
@@ -70,7 +71,7 @@
             <div class="detail-info front">
                 <h1 class="project-header mono">{{ project.name }}</h1>
                 <div class="detail-buttons">
-                    <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank">App</a>
+                    <a class="uk-button uk-button-secondary" href="{{ project.link }}" target="__blank" id="app-btn">App</a>
                     <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-flip">Technical Specs</button>
                     <a class="uk-button uk-button-secondary uk-margin-small-right" target="__blank" href="{{ project.repository }}">Code</a>
                 </div>
