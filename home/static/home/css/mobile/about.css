@@ -1,0 +1,50 @@
+@media (max-width: 905px) {
+    /* Adjust height for rendering */
+    .step {
+        height: auto;
+    }
+
+    /* First panel */
+    #splash {
+        position: relative;
+        height: 60vh;
+        min-height: 4in;
+
+        margin-top: 0;
+    }
+
+    /* Panel content */
+    #welcome-title {
+        position: absolute;
+        top: 0;
+        right: 0;
+    
+        width: 100%;
+    }
+    
+    #welcome-title > h1 {
+        font-size: calc(1rem + 4vw);
+        text-align: right;
+    
+        letter-spacing: 2px;
+    }
+    
+    /* Contact info */
+    #welcome-text {
+        position: absolute;
+        min-width: 0;
+
+        bottom: 10%;
+        left: 0;
+
+        width: 100%;
+    
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+    }
+    
+    #welcome-text > h2 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
