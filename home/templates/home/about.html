@@ -44,8 +44,20 @@
                 </h1>
             </div>
             <div class="uk-width-3-4@s" id="glance-right" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 450;">
-                <h3 class="mono code-text scrollspy">
+                <h3 class="mono code-text scrollspy all-show">
                     <span class="reserved">class</span> <span class="misc2">AtsushiToda</span><span class="brackets">(</span><span class="comment2">JuniorDeveloper</span></span>.<span class="misc">forHire</span><span class="brackets">)</span>:
+                </h3>
+
+                <h3 class="mono code-text scrollspy mob-show">
+                    <div>
+                        <span class="reserved">class</span> <span class="misc2">AtsushiToda</span><span class="brackets">(</span>
+                    </div>
+                    <div class="indent">
+                        <span class="comment2">JuniorDeveloper</span>.<span class="misc">forHire</span>
+                    </div>
+                    <div>
+                        <span class="brackets">)</span>
+                    </div>
                 </h3>
 
                 <h5 class="mono code-text indent comment scrollspy">
@@ -162,7 +174,7 @@
                 <h1 class="mono">Ok, <span class="misc3">your turn</span>.</h1>
             </div>
             <div class="uk-width-1-1 uk-padding-medium uk-flex uk-flex-middle scrollspy" uk-grid>
-                <div class="uk-width-1-2@s">
+                <div class="uk-width-1-2@s" id="form-left">
                     <form method="post" action="{% url 'contact' %}" class="uk-margin-large uk-grid-small" uk-grid>
                             {% csrf_token %}
                             <legend class="uk-legend uk-margin-medium-bottom"> <span class="reserved">def</span> <span class="function">contact</span><span class="brackets">():</span></legend>
@@ -229,7 +241,8 @@
                     </form>
                 </div>
                 <div class="uk-width-1-2@s" id="fin-text">
-                    <h1 class="mono">< Say <span class="misc4">hi</span></h1>
+                    <hr class="mob-show">
+                    <h1 class="mono"><span class="mob-show">^</span><span class="all-show"><</span> Say <span class="misc4">hi</span></h1>
                     <hr>
                     <h1 class="mono">See my <a href="{% url 'all-projects' %}" class="link-2 underline2-1">work</a>!</h1>
                     <hr>

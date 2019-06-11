@@ -75,3 +75,22 @@
   background-position: center;
   background-size: cover;
 }
+
+/* Code class def - hide mob version */
+.mob-show {
+    display: none;
+}
+
+.all-show {
+    display: block;
+}
+
+@media (max-width: 905px) {
+    .mob-show {
+        display: block;
+    }
+    
+    .all-show {
+        display: none;
+    }
+}

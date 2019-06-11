@@ -329,3 +329,18 @@ a.link-6:hover, a.link-6:active {
 .indent3 {
     margin-left: 9rem;
 }
+
+/* Mobile indents are smaller */
+@media (max-width: 905px) {
+    .indent {
+        margin-left: 1.5rem;
+    }
+
+    .indent2 {
+        margin-left: 3rem;
+    }
+
+    .indent3 {
+        margin-left: 4.5rem;
+    }
+}

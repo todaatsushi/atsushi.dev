@@ -47,4 +47,27 @@
         font-size: 1rem;
         letter-spacing: 1px;
     }
+
+    /* Second panel - intro */
+    .panel-title {
+        border-right: 0;
+    }
+
+    /* faux code */
+    #glance-right > h3 {
+        font-size: 1rem;
+    }
+
+    #glance-right > h5  {
+        font-size: 0.8rem;
+    }
+
+    /* Form padding adjustment */
+    #form-left {
+        padding: 0;
+    }
+
+    #fin-text {
+        margin: 0;
+    }
 }
