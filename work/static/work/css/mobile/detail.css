@@ -63,4 +63,10 @@
     #app-btn {
         margin-right: 10px !important;
     }
+
+    /* Admin control panel */
+    #admin-ctrl {
+        bottom: 30px; 
+        left: 15px;
+    }
 }
