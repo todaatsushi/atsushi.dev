@@ -28,6 +28,6 @@ def get_current_or_dummy():
     try:
         current = Project.objects.get(current=True)
     except Project.DoesNotExist:
-        current = NoProj(current=False, name="None", description="Hmm... There's nothing in the works at the moment but that will almost certainly change very soon. Watch this space!")
+        current = NoProj(current=False, name="None", , url_slug="fast_10" ,description="Hmm... There's nothing in the works at the moment but that will almost certainly change very soon. Watch this space!")
 
     return current
