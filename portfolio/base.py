@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', 'atsushi.dev']
+ALLOWED_HOSTS = ['localhost', 'www.atsushi.dev', 'atsushi.dev']
 
 
 # Application definition
