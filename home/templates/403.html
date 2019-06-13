@@ -1,0 +1,11 @@
+{% extends 'home/errors.html' %}
+
+{% block title %}
+    Error: {% block code %}{% endblock %}
+{% endblock %}
+
+{% block reasoning %}
+    <p class="serif">
+        There's been a 403! This is an admin only page.
+    </p>
+{% endblock %}
