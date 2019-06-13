@@ -21,6 +21,7 @@ def add_class(value, arg):
     """
     Adds arg class(es) to value (non form elements).
     """
+    print(value)
     vals = value.split('\n')
     final = ''
 

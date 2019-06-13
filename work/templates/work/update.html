@@ -28,16 +28,16 @@
                     {% with input_type=field.field.widget.input_type %}
                         {% if input_type == "text" or input_type == 'url' %}
                             {{ field.label }}
-                            {{ field|add_class:"uk-input" }}
+                            {{ field|add_class_form:"uk-input" }}
                         {% elif input_type == "checkbox" %}
                             {{ field.label }}
-                            {{ field|add_class:"uk-checkbox" }}
+                            {{ field|add_class_form:"uk-checkbox" }}
                         {% elif input_type == "file" %}
                             {{ field.label }}
-                            {{ field|add_class:"uk-margin-small" }}
+                            {{ field|add_class_form:"uk-margin-small" }}
                         {% else %}
                             {{ field.label }}
-                            {{ field|add_class:"uk-textarea" }}
+                            {{ field|add_class_form:"uk-textarea" }}
                         {% endif %}
                     {% endwith %}
                 </div>
