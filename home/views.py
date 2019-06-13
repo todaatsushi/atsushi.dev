@@ -76,10 +76,3 @@ def about(request):
     }
     return render(request, 'home/about.html', context)
 
-
-def test(request):
-    """
-    Test view to see if templates work.
-    """
-    p = Project.objects.get(url_slug="champ-django")
-    return render(request, 'home/500.html', {'proj': p})
