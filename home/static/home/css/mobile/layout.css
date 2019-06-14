@@ -7,4 +7,8 @@
         margin-top: 2rem;
     }
 
+    #nav-options {
+        justify-content: center;
+    }
+
 }
