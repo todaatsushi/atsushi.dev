@@ -4,7 +4,7 @@ Personal portfolio website for me - Atsushi Toda. Can be altered to become anybo
 
 ## Project links
 * [atsushi.dev](https://www.atsushi.dev) - link to the site
-* (Project page on atsushi.dev) - link to more information on the project page on my site
+* [Project page](https://www.atsushi.dev/work/atsushidev/) on atsushi.dev - link to more information on the project page on my site
 
 ## Getting Started
 
