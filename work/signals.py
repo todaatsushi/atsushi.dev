@@ -1,9 +1,9 @@
 from django.db.models.signals import post_save, post_delete, pre_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage
+from django.conf import settings
 
 import os
-from django.conf import settings
 
 from work.models import Project, ProjectSpecs
 
@@ -22,6 +22,7 @@ def ensure_slug_exists(sender, instance, created, **kwargs):
 def create_project_specs(sender, instance, created, **kwargs):
     if created:
         ProjectSpecs.objects.create(project=instance)
+
 
 # Delete preview and header files after project delete
 # https://stackoverflow.com/questions/55480222/remove-images-from-media-folder-after-deleting-blog-post
