@@ -1,7 +1,6 @@
 /* Intro panel */
 #detail-intro {
-    min-height: 2in;
-    height: 25vh;
+    height: 4in;
 
     margin: 2rem 0;
 
@@ -9,6 +8,9 @@
 }
 
 #detail-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-right: 2px solid #000;
     width: 33%;
 
@@ -18,7 +20,7 @@
 #detail-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     width: 66%;
 
     overflow-x: hidden;
