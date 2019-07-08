@@ -7,8 +7,8 @@ class CreateUpdateProject(forms.ModelForm):
     class Meta:
         model = Project
         fields = [
-            'name', 'description', 'link', 'repository', 'languages', 'stack', 'extra_tags',
-            'hosting', 'public', 'current',
+            'name', 'description', 'one_line', 'link', 'repository', 'languages', 'stack', 'extra_tags',
+            'hosting', 'public', 'current', 'best',
         ]
         widgets = {
             'name': forms.TextInput(),
