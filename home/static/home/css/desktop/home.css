@@ -181,14 +181,23 @@ article.uk-card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: 5rem 0;
 }
 
 #recomended-projects {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .best-card {
     margin: 0 10px;
 }
+
+.best-body {
+    height: 2in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
