@@ -12,6 +12,7 @@ def create_project():
     """
     return Project.objects.create(name='Test', url_slug='test', description='test',
             link='http://www.test.com', repository='http://www.test.com',
+            one_line="Test project for tests.", best=False,
             languages='JavaScript,C', stack='React,Node', hosting='Heroku',
             current=False, public=False, extra_tags='API,Dataframes'
             )
