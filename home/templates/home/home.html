@@ -82,12 +82,17 @@
         </h1>
         <section class="scrollspy" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" id="recomended-projects">
             {% for project in best %}
-                <div class="uk-card uk-card-default best-card">
+                <div class="uk-card uk-card-default best-card" uk-height-match=".best-card">
                     <div class="uk-card-media-top">
                         <img src="{{ project.projectspecs.preview.url }}" alt="">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title serif"><span class="comment2">{{ project.name }}</span></h3>
+                        {% if project.one_line %}
+                            <p class="serif">
+                                {{ project.one_line }}
+                            </p>
+                        {% endif %}
                         <a href="{% url 'view-project' project.url_slug %}" class="link-3">View</a>
                     </div>
                 </div>
