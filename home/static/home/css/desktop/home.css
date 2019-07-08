@@ -200,3 +200,8 @@ article.uk-card-body {
     flex-direction: column;
     justify-content: center;
 }
+
+.best-preview {
+    width: 100%;
+    height: auto;
+}
