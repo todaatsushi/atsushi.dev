@@ -26,6 +26,7 @@ class Project(models.Model):
     # Status
     current = models.BooleanField(default=False)
     public = models.BooleanField(default=False)
+    best = models.BooleanField(default=False)
 
     def __repr__(self):
         return self.name
