@@ -31,6 +31,10 @@
         flex-direction: column;
     }
 
+    #quick-left{
+        max-height: 3in;
+    }
+
     /* Adjust height for rendering */
     .step {
         height: auto;
@@ -49,4 +53,5 @@
     #welcome-options > article.uk-card {
         padding: 0;
     }
+
 }

@@ -76,13 +76,13 @@
     </section>
 
     {# Projects #}
-    <section class="uk-container@s step" id="recomended">
+    <section class="uk-container@s" id="recomended">
         <h1 class="scrollspy mono misc">
             Recomended Projects
         </h1>
-        <section class="scrollspy" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" id="recomended-projects">
+        <section class="scrollspy uk-child-width-1-3@m" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" id="recomended-projects" uk-grid>
             {% for project in best %}
-                <div class="uk-card uk-card-default scrollspy best-card uk-width-1-3@s" uk-height-match=".best-card">
+                <div class="uk-card uk-card-default scrollspy best-card" uk-height-match=".best-card">
                     <div class="uk-card-media-top">
                         <a href="{% url 'view-project' project.url_slug %}">
                             <img src="{{ project.projectspecs.preview.url }}" alt="{{ project.name }} in action." class="best-preview" uk-height-match=".best-preview">
@@ -110,7 +110,7 @@
     </section>
 
     {# Next options panel #}
-    <article id="sitemap" class="uk-container@s step">
+    <article id="sitemap" class="uk-container@s">
         <article id="home-start" uk-scrollspy="cls: uk-animation-fade; target: .scrollspy; delay: 500;" class="uk-padding-large">
             <h1 class="mono scrollspy help-message">Now that we're <span class="misc3">acquainted</span>...</h1>
             <h2 class="mono scrollspy help-message">Any of these <span class="misc">sound good</span>?</h2>
