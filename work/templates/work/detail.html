@@ -17,13 +17,13 @@
             <h1 class="mono">
                 <span class="function">about</span><span class="brackets">(</span>
                 <br>
-                <span class="indent comment2">"{{ project.name }}"</span>
+                <span class="indent comment2"><a href="{{ project.link}}" class="link-3">"{{ project.name }}"</a></span>
                 <br>
                 <span class="brackets">)</span>
             </h1>
         </div>
         <article id="detail-text" class="uk-padding-large scrollspy">
-            <h3 class="mono">Technical Summary</h3>
+            <h3 class="mono">Technical Summary - <a class="link-1" target="__blank" href="{{ project.link }}">Link to app</a></h3>
             {{ project.projectspecs.technical_summary|linebreaks }}
         </article>
     </section>
