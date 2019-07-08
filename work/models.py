@@ -14,6 +14,7 @@ class Project(models.Model):
     description = models.TextField(null=True)
     link = models.CharField(null=True, max_length=100)
     repository = models.CharField(max_length=100)
+    one_line = models.CharField(max_length=100, null=True)
 
     # Technical Info
     languages = models.TextField(null=True)
