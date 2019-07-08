@@ -57,6 +57,7 @@ def home(request):
         'projects': Project.objects.all(),
         'hide_nav': True,
         'current': get_current_or_dummy(),
+        'best': Project.objects.filter(best=True),
     }
     return render(request, 'home/home.html', context)
 

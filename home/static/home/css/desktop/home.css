@@ -175,3 +175,20 @@ article.uk-card-body {
 #quick-right > h3 {
     text-align: center;
 }
+
+/* Projects */
+#recomended {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#recomended-projects {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.best-card {
+    margin: 0 10px;
+}
